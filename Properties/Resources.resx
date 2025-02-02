@@ -121,8 +121,14 @@
   <data name="check-box2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\check-box2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="students" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\students.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="reject (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\reject (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="confused" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\confused.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="school-bag" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\school-bag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,8 +136,8 @@
   <data name="padlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\padlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="students" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\students.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="delete1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="profile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\profile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -141,6 +147,9 @@
   </data>
   <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reject (1)2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reject (1)2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,8 +166,11 @@
   <data name="4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="delete1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="edit2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\edit2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="check-box4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\check-box4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hide" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -168,9 +180,6 @@
   </data>
   <data name="reject" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\reject.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="check-box4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\check-box4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,7 +229,7 @@
   <data name="edit1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="edit2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\edit2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="warning1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\warning1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

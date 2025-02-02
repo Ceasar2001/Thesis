@@ -142,9 +142,6 @@ namespace TeacherPortal
             InitializeComponent();
             dbConnection = new DBConnection();
             this.fEnrollList = fEnrollList;
-
-            // Set all checkboxes to disabled by default
-            DisableAllSubjects();
         }
 
         private void pictureBoxClose_Click(object sender, EventArgs e)
@@ -263,92 +260,7 @@ namespace TeacherPortal
             txtSection.Clear();
             txtLrn.Clear();
 
-            // Reset checkboxes
-            DisableAllSubjects();
-        }
-
-        private void DisableAllSubjects()
-        {
-            // Disable all checkboxes by default
-            english.Checked = false;
-            math.Checked = false;
-            science.Checked = false;
-            filipino.Checked = false;
-            eep.Checked = false;
-            tle.Checked = false;
-            aralpan.Checked = false;
-            makabayan.Checked = false;
-            esp.Checked = false;
-            makabansa.Checked = false;
-            language.Checked = false;
-            reading_literacy.Checked = false;
-
-            english.Enabled = false;
-            math.Enabled = false;
-            science.Enabled = false;
-            filipino.Enabled = false;
-            eep.Enabled = false;
-            tle.Enabled = false;
-            aralpan.Enabled = false;
-            makabayan.Enabled = false;
-            esp.Enabled = false;
-            makabansa.Enabled = false;
-            language.Enabled = false;
-            reading_literacy.Enabled = false;
-        }
-
-        private void AssignSubjects()
-        {
-            // Convert the level text to an integer (assuming txtLevel contains the grade level)
-            if (int.TryParse(txtLevel.Text, out int gradeLevel))
-            {
-                if (gradeSubjects.ContainsKey(gradeLevel))
-                {
-                    // Enable and check only the relevant subjects for the given grade level
-                    foreach (var subject in gradeSubjects[gradeLevel])
-                    {
-                        switch (subject)
-                        {
-                            case "english":
-                                english.Checked = true;
-                                break;
-                            case "math":
-                                math.Checked = true;
-                                break;
-                            case "science":
-                                science.Checked = true;
-                                break;
-                            case "filipino":
-                                filipino.Checked = true;
-                                break;
-                            case "eep":
-                                eep.Checked = true;
-                                break;
-                            case "tle":
-                                tle.Checked = true;
-                                break;
-                            case "aralpan":
-                                aralpan.Checked = true;
-                                break;
-                            case "makabayan":
-                                makabayan.Checked = true;
-                                break;
-                            case "esp":
-                                esp.Checked = true;
-                                break;
-                            case "makabansa":
-                                makabansa.Checked = true;
-                                break;
-                            case "language":
-                                language.Checked = true;
-                                break;
-                            case "reading_literacy":
-                                reading_literacy.Checked = true;
-                                break;
-                        }
-                    }
-                }
-            }
+            
         }
     }
 }

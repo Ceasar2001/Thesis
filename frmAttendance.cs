@@ -86,10 +86,17 @@ namespace TeacherPortal
             DateTime selectedDate = CurrentDate.Value.Date; // Get the selected date
             string selectedSection = ChooseSection.SelectedItem.ToString(); // Get selected section
             int sectionId = GetSectionId(selectedSection); // Get section ID based on section name
+            string aycode = GetActiveAcademicYear(); // Fetch active academic year
 
             if (sectionId == -1)
             {
                 MessageBox.Show("Invalid section selected.");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(aycode))
+            {
+                MessageBox.Show("No active academic year found.");
                 return;
             }
 
@@ -111,7 +118,7 @@ namespace TeacherPortal
 
                             // Check the attendance status for the selected day
                             status = GetStatusForDay(row, selectedDate); // Get status based on the selected date
-                            SaveAttendance(connection, lrn, sectionId, selectedDate, status); // Save the status for the selected date
+                            SaveAttendance(connection, lrn, sectionId, selectedDate, status, aycode); // Save the status with academic year
                         }
 
                         // Commit the transaction after all insertions
@@ -126,6 +133,53 @@ namespace TeacherPortal
                 }
             }
         }
+
+
+        //private void saveAttendance_Click(object sender, EventArgs e)
+        //{
+        //    DateTime selectedDate = CurrentDate.Value.Date; // Get the selected date
+        //    string selectedSection = ChooseSection.SelectedItem.ToString(); // Get selected section
+        //    int sectionId = GetSectionId(selectedSection); // Get section ID based on section name
+
+        //    if (sectionId == -1)
+        //    {
+        //        MessageBox.Show("Invalid section selected.");
+        //        return;
+        //    }
+
+        //    using (SQLiteConnection connection = dbConnection.GetConnection)
+        //    {
+        //        try
+        //        {
+        //            if (connection.State != ConnectionState.Open)
+        //            {
+        //                connection.Open(); // Ensure the connection is open
+        //            }
+
+        //            using (SQLiteTransaction transaction = connection.BeginTransaction())
+        //            {
+        //                foreach (DataGridViewRow row in dataGridViewAttendanceList.Rows)
+        //                {
+        //                    string lrn = row.Cells["colLrn"].Value.ToString(); // Get LRN
+        //                    string status = string.Empty;  // Initialize status as empty
+
+        //                    // Check the attendance status for the selected day
+        //                    status = GetStatusForDay(row, selectedDate); // Get status based on the selected date
+        //                    SaveAttendance(connection, lrn, sectionId, selectedDate, status); // Save the status for the selected date
+        //                }
+
+        //                // Commit the transaction after all insertions
+        //                transaction.Commit();
+        //            }
+
+        //            MessageBox.Show("Attendance saved successfully.");
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show("Error saving attendance: " + ex.Message);
+        //        }
+        //    }
+        //}
 
 
         private string GetStatusForDay(DataGridViewRow row, DateTime selectedDate)
@@ -144,12 +198,11 @@ namespace TeacherPortal
             return status;
         }
 
-
-        private void SaveAttendance(SQLiteConnection connection, string lrn, int sectionId, DateTime attendanceDate, string status)
+        private void SaveAttendance(SQLiteConnection connection, string lrn, int sectionId, DateTime attendanceDate, string status, string aycode)
         {
             string insertQuery = @"
-        INSERT INTO tblattendance (lrn, sectionid, attendance_date, status)
-        VALUES (@lrn, @sectionid, @attendance_date, @status);";
+    INSERT INTO tblattendance (lrn, sectionid, attendance_date, status, aycode)
+    VALUES (@lrn, @sectionid, @attendance_date, @status, @aycode);";
 
             using (SQLiteCommand cmd = new SQLiteCommand(insertQuery, connection))
             {
@@ -157,10 +210,29 @@ namespace TeacherPortal
                 cmd.Parameters.AddWithValue("@sectionid", sectionId);
                 cmd.Parameters.AddWithValue("@attendance_date", attendanceDate.ToString("yyyy-MM-dd"));
                 cmd.Parameters.AddWithValue("@status", status);
+                cmd.Parameters.AddWithValue("@aycode", aycode); // Add aycode parameter
 
                 cmd.ExecuteNonQuery(); // Execute the command for each attendance status
             }
         }
+
+
+        //private void SaveAttendance(SQLiteConnection connection, string lrn, int sectionId, DateTime attendanceDate, string status)
+        //{
+        //    string insertQuery = @"
+        //INSERT INTO tblattendance (lrn, sectionid, attendance_date, status)
+        //VALUES (@lrn, @sectionid, @attendance_date, @status);";
+
+        //    using (SQLiteCommand cmd = new SQLiteCommand(insertQuery, connection))
+        //    {
+        //        cmd.Parameters.AddWithValue("@lrn", lrn);
+        //        cmd.Parameters.AddWithValue("@sectionid", sectionId);
+        //        cmd.Parameters.AddWithValue("@attendance_date", attendanceDate.ToString("yyyy-MM-dd"));
+        //        cmd.Parameters.AddWithValue("@status", status);
+
+        //        cmd.ExecuteNonQuery(); // Execute the command for each attendance status
+        //    }
+        //}
 
 
 
@@ -195,6 +267,7 @@ namespace TeacherPortal
         private void ShowStudent_Click(object sender, EventArgs e)
         {
             string selectedSection = ChooseSection.SelectedItem.ToString();
+            string currentAcademicYear = string.Empty;
 
             try
             {
@@ -203,23 +276,46 @@ namespace TeacherPortal
 
                 using (SQLiteConnection cn = dbConnection.GetConnection)
                 {
-                    // Open the connection if not already open
+                    // Step 1: Fetch the open academic year from tblacadyear
                     if (cn.State != ConnectionState.Open)
                     {
                         cn.Open();
                     }
 
-                    // Query to fetch students based on the selected section
+                    string ayQuery = "SELECT aycode FROM tblacadyear WHERE status = 'Open' LIMIT 1";
+                    using (SQLiteCommand ayCmd = new SQLiteCommand(ayQuery, cn))
+                    {
+                        var result = ayCmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            currentAcademicYear = result.ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No open academic year found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
+                    if (string.IsNullOrEmpty(currentAcademicYear))
+                    {
+                        return; // Exit if no open academic year was found
+                    }
+
+                    // Step 2: Fetch students for the selected section and current academic year
                     string query = @"
                 SELECT e.lrn, s.lname || ', ' || s.fname || ' ' || s.mname AS student
                 FROM vwenrollment e
                 JOIN tblstudent s ON s.lrn = e.lrn
-                WHERE e.section = @section AND e.status = 'Enrolled'
+                WHERE e.section = @section
+                AND e.status = 'Enrolled'
+                AND e.aycode = @academicYear  -- Filter by current academic year
                 ORDER BY s.lname, s.fname, s.mname;";
 
                     using (SQLiteCommand cm = new SQLiteCommand(query, cn))
                     {
                         cm.Parameters.AddWithValue("@section", selectedSection);
+                        cm.Parameters.AddWithValue("@academicYear", currentAcademicYear);  // Bind academic year
                         dr = cm.ExecuteReader();
 
                         if (dr.HasRows)
@@ -232,7 +328,7 @@ namespace TeacherPortal
                         }
                         else
                         {
-                            MessageBox.Show("No students found in this section.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("No students found in this section for the current academic year.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
 
                         dr.Close();
@@ -244,6 +340,9 @@ namespace TeacherPortal
                 MessageBox.Show("Error loading students: " + ex.Message);
             }
         }
+
+
+
         private void EnableTodayCheckbox()
         {
             DateTime selectedDate = CurrentDate.Value;
@@ -298,5 +397,36 @@ namespace TeacherPortal
         {
 
         }
+
+        private string GetActiveAcademicYear()
+        {
+            string aycode = string.Empty;
+            using (SQLiteConnection connection = dbConnection.GetConnection)
+            {
+                try
+                {
+                    if (connection.State != ConnectionState.Open)
+                    {
+                        connection.Open(); // Ensure the connection is open
+                    }
+
+                    string query = "SELECT aycode FROM tblacadyear WHERE status = 'Open' LIMIT 1";
+                    using (SQLiteCommand cmd = new SQLiteCommand(query, connection))
+                    {
+                        object result = cmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            aycode = result.ToString();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error fetching academic year: " + ex.Message);
+                }
+            }
+            return aycode;
+        }
+
     }
 }

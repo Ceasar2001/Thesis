@@ -90,11 +90,11 @@ namespace TeacherPortal
                 DateTime parsedDate;
                 if (DateTime.TryParse(birthdateValue, out parsedDate))
                 {
-                    student.birthdate.Text = parsedDate.ToString("yyyy-MM-dd"); // Format as needed
+                    student.birthdate.Text = parsedDate.ToString("yyyy-MM-dd");
                 }
                 else
                 {
-                    student.birthdate.Text = ""; // Or handle invalid date appropriately
+                    student.birthdate.Text = "";
                 }
 
                 student.txtContact.Text = dataGridViewStudentList.Rows[e.RowIndex].Cells[6].Value.ToString();

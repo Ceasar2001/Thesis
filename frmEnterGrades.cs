@@ -30,10 +30,12 @@ namespace TeacherPortal
             //textBoxLrn.Text = lrn;  // Assuming you want to display LRN in a textbox (create it if not already done)
         }
 
+
         private void close_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
+
 
 
         // Written Works
@@ -177,6 +179,7 @@ namespace TeacherPortal
 
 
 
+
         //Initial Grade(IG) = WS of Written Works + WS of Performance Task + WS of Quarterly Assessment
         //
 
@@ -198,6 +201,7 @@ namespace TeacherPortal
             lblQuaterGrade.Text = quarterlyGrade.ToString("0");
         }
 
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Do you want to save the grades for this student?", DBConnection._title, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -207,13 +211,10 @@ namespace TeacherPortal
                     using (SQLiteConnection cn = dbConnection.GetConnection)
                     {
                         cn.Open();
-
-                        // Start transaction to ensure saving grades and student details together
                         using (SQLiteTransaction transaction = cn.BeginTransaction())
                         {
                             try
                             {
-                                // Get data from the form (assuming you have textboxes and combo boxes for these values)
                                 string studentName = textBoxStudetname.Text;
                                 string section = textBoxSection.Text;
                                 string subject = textBoxSubject.Text;
@@ -225,15 +226,11 @@ namespace TeacherPortal
                                     return;
                                 }
 
-
-                                // Calculate total grade based on weighted scores
                                 double writtenScore = double.TryParse(lblWrittenWs.Text, out double wsWritten) ? wsWritten : 0;
                                 double performanceScore = double.TryParse(lblPerformWs.Text, out double wsPerformance) ? wsPerformance : 0;
                                 double quarterlyScore = double.TryParse(lblQuaterWs.Text, out double wsQuarterly) ? wsQuarterly : 0;
-
                                 double totalGrade = writtenScore + performanceScore + quarterlyScore;
 
-                                // Insert the grade record into tblGrade
                                 using (SQLiteCommand cmd = new SQLiteCommand("INSERT INTO tblGrade (studentName, section, subject, quarter, writtenScore, performanceScore, quarterlyScore, totalGrade) VALUES (@studentName, @section, @subject, @quarter, @writtenScore, @performanceScore, @quarterlyScore, @totalGrade)", cn, transaction))
                                 {
                                     cmd.Parameters.AddWithValue("@studentName", studentName);
@@ -244,25 +241,27 @@ namespace TeacherPortal
                                     cmd.Parameters.AddWithValue("@performanceScore", performanceScore);
                                     cmd.Parameters.AddWithValue("@quarterlyScore", quarterlyScore);
                                     cmd.Parameters.AddWithValue("@totalGrade", totalGrade);
-
                                     cmd.ExecuteNonQuery();
                                 }
 
-                                // Commit transaction if everything is successful
                                 transaction.Commit();
 
-                                MessageBox.Show("Grades successfully saved for the student!", DBConnection._title, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                //this.Dispose();
+                                MessageBox.Show("Grades successfully saved!", DBConnection._title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                // Notify frmGrading to refresh
+                                if (Application.OpenForms["frmGrading"] is frmGrading gradingForm)
+                                {
+                                    gradingForm.LoadStudentsWithGrades(section, subject);
+                                }
+
+                                this.Dispose();
                             }
                             catch (Exception ex)
                             {
-                                // Rollback transaction in case of error
                                 transaction.Rollback();
-                                MessageBox.Show($"Error saving grade record: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show($"Error saving grade: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
-
-                        cn.Close();
                     }
                 }
                 catch (Exception ex)
@@ -271,7 +270,6 @@ namespace TeacherPortal
                 }
             }
         }
-
 
     }
 

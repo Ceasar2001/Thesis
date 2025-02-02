@@ -50,19 +50,6 @@
             this.txtAdviser = new System.Windows.Forms.TextBox();
             this.searchLevel = new System.Windows.Forms.PictureBox();
             this.searchLrn = new System.Windows.Forms.PictureBox();
-            this.makabayan = new System.Windows.Forms.CheckBox();
-            this.aralpan = new System.Windows.Forms.CheckBox();
-            this.filipino = new System.Windows.Forms.CheckBox();
-            this.tle = new System.Windows.Forms.CheckBox();
-            this.science = new System.Windows.Forms.CheckBox();
-            this.eep = new System.Windows.Forms.CheckBox();
-            this.math = new System.Windows.Forms.CheckBox();
-            this.english = new System.Windows.Forms.CheckBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.esp = new System.Windows.Forms.CheckBox();
-            this.reading_literacy = new System.Windows.Forms.CheckBox();
-            this.makabansa = new System.Windows.Forms.CheckBox();
-            this.language = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLevel)).BeginInit();
@@ -173,7 +160,7 @@
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCancel.ForeColor = System.Drawing.Color.Snow;
-            this.buttonCancel.Location = new System.Drawing.Point(283, 617);
+            this.buttonCancel.Location = new System.Drawing.Point(287, 455);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(77, 35);
             this.buttonCancel.TabIndex = 22;
@@ -191,7 +178,7 @@
             this.ButtonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonSave.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonSave.ForeColor = System.Drawing.Color.Snow;
-            this.ButtonSave.Location = new System.Drawing.Point(191, 617);
+            this.ButtonSave.Location = new System.Drawing.Point(195, 455);
             this.ButtonSave.Name = "ButtonSave";
             this.ButtonSave.Size = new System.Drawing.Size(67, 35);
             this.ButtonSave.TabIndex = 20;
@@ -295,166 +282,12 @@
             this.searchLrn.TabStop = false;
             this.searchLrn.Click += new System.EventHandler(this.searchLrn_Click);
             // 
-            // makabayan
-            // 
-            this.makabayan.AutoSize = true;
-            this.makabayan.Enabled = false;
-            this.makabayan.Location = new System.Drawing.Point(378, 508);
-            this.makabayan.Name = "makabayan";
-            this.makabayan.Size = new System.Drawing.Size(104, 23);
-            this.makabayan.TabIndex = 48;
-            this.makabayan.Text = "Makabayan";
-            this.makabayan.UseVisualStyleBackColor = true;
-            // 
-            // aralpan
-            // 
-            this.aralpan.AutoSize = true;
-            this.aralpan.Enabled = false;
-            this.aralpan.Location = new System.Drawing.Point(271, 508);
-            this.aralpan.Name = "aralpan";
-            this.aralpan.Size = new System.Drawing.Size(83, 23);
-            this.aralpan.TabIndex = 49;
-            this.aralpan.Text = "Aral Pan";
-            this.aralpan.UseVisualStyleBackColor = true;
-            // 
-            // filipino
-            // 
-            this.filipino.AutoSize = true;
-            this.filipino.Enabled = false;
-            this.filipino.Location = new System.Drawing.Point(378, 479);
-            this.filipino.Name = "filipino";
-            this.filipino.Size = new System.Drawing.Size(77, 23);
-            this.filipino.TabIndex = 50;
-            this.filipino.Text = "Filipino";
-            this.filipino.UseVisualStyleBackColor = true;
-            // 
-            // tle
-            // 
-            this.tle.AutoSize = true;
-            this.tle.Enabled = false;
-            this.tle.Location = new System.Drawing.Point(149, 508);
-            this.tle.Name = "tle";
-            this.tle.Size = new System.Drawing.Size(51, 23);
-            this.tle.TabIndex = 51;
-            this.tle.Text = "TLE";
-            this.tle.UseVisualStyleBackColor = true;
-            // 
-            // science
-            // 
-            this.science.AutoSize = true;
-            this.science.Enabled = false;
-            this.science.Location = new System.Drawing.Point(271, 479);
-            this.science.Name = "science";
-            this.science.Size = new System.Drawing.Size(78, 23);
-            this.science.TabIndex = 52;
-            this.science.Text = "Science";
-            this.science.UseVisualStyleBackColor = true;
-            // 
-            // eep
-            // 
-            this.eep.AutoSize = true;
-            this.eep.Enabled = false;
-            this.eep.Location = new System.Drawing.Point(37, 508);
-            this.eep.Name = "eep";
-            this.eep.Size = new System.Drawing.Size(52, 23);
-            this.eep.TabIndex = 53;
-            this.eep.Text = "EEP";
-            this.eep.UseVisualStyleBackColor = true;
-            // 
-            // math
-            // 
-            this.math.AutoSize = true;
-            this.math.Enabled = false;
-            this.math.Location = new System.Drawing.Point(149, 479);
-            this.math.Name = "math";
-            this.math.Size = new System.Drawing.Size(113, 23);
-            this.math.TabIndex = 54;
-            this.math.Text = "Mathematics";
-            this.math.UseVisualStyleBackColor = true;
-            // 
-            // english
-            // 
-            this.english.AutoSize = true;
-            this.english.Enabled = false;
-            this.english.Location = new System.Drawing.Point(37, 479);
-            this.english.Name = "english";
-            this.english.Size = new System.Drawing.Size(75, 23);
-            this.english.TabIndex = 55;
-            this.english.Text = "English";
-            this.english.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(131, 434);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(335, 19);
-            this.label8.TabIndex = 47;
-            this.label8.Text = "Student will be Enrolled in the following subjects.";
-            // 
-            // esp
-            // 
-            this.esp.AutoSize = true;
-            this.esp.Enabled = false;
-            this.esp.Location = new System.Drawing.Point(37, 537);
-            this.esp.Name = "esp";
-            this.esp.Size = new System.Drawing.Size(52, 23);
-            this.esp.TabIndex = 53;
-            this.esp.Text = "ESP";
-            this.esp.UseVisualStyleBackColor = true;
-            // 
-            // reading_literacy
-            // 
-            this.reading_literacy.AutoSize = true;
-            this.reading_literacy.Enabled = false;
-            this.reading_literacy.Location = new System.Drawing.Point(378, 537);
-            this.reading_literacy.Name = "reading_literacy";
-            this.reading_literacy.Size = new System.Drawing.Size(167, 23);
-            this.reading_literacy.TabIndex = 49;
-            this.reading_literacy.Text = "Reading and Literacy";
-            this.reading_literacy.UseVisualStyleBackColor = true;
-            // 
-            // makabansa
-            // 
-            this.makabansa.AutoSize = true;
-            this.makabansa.Enabled = false;
-            this.makabansa.Location = new System.Drawing.Point(149, 537);
-            this.makabansa.Name = "makabansa";
-            this.makabansa.Size = new System.Drawing.Size(103, 23);
-            this.makabansa.TabIndex = 48;
-            this.makabansa.Text = "Makabansa";
-            this.makabansa.UseVisualStyleBackColor = true;
-            // 
-            // language
-            // 
-            this.language.AutoSize = true;
-            this.language.Enabled = false;
-            this.language.Location = new System.Drawing.Point(271, 537);
-            this.language.Name = "language";
-            this.language.Size = new System.Drawing.Size(93, 23);
-            this.language.TabIndex = 48;
-            this.language.Text = "Language";
-            this.language.UseVisualStyleBackColor = true;
-            // 
             // frmEnroll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(567, 664);
+            this.ClientSize = new System.Drawing.Size(567, 512);
             this.ControlBox = false;
-            this.Controls.Add(this.language);
-            this.Controls.Add(this.makabansa);
-            this.Controls.Add(this.reading_literacy);
-            this.Controls.Add(this.makabayan);
-            this.Controls.Add(this.aralpan);
-            this.Controls.Add(this.filipino);
-            this.Controls.Add(this.tle);
-            this.Controls.Add(this.esp);
-            this.Controls.Add(this.science);
-            this.Controls.Add(this.eep);
-            this.Controls.Add(this.math);
-            this.Controls.Add(this.english);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.searchLevel);
             this.Controls.Add(this.searchLrn);
             this.Controls.Add(this.txtAdviser);
@@ -515,18 +348,5 @@
         private System.Windows.Forms.Label label7;
         public System.Windows.Forms.TextBox txtAdviser;
         private System.Windows.Forms.PictureBox searchLevel;
-        private System.Windows.Forms.CheckBox makabayan;
-        private System.Windows.Forms.CheckBox aralpan;
-        private System.Windows.Forms.CheckBox filipino;
-        private System.Windows.Forms.CheckBox tle;
-        private System.Windows.Forms.CheckBox science;
-        private System.Windows.Forms.CheckBox eep;
-        private System.Windows.Forms.CheckBox math;
-        private System.Windows.Forms.CheckBox english;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.CheckBox esp;
-        private System.Windows.Forms.CheckBox reading_literacy;
-        private System.Windows.Forms.CheckBox makabansa;
-        private System.Windows.Forms.CheckBox language;
     }
 }

@@ -79,8 +79,6 @@
             this.lblperformanceTotal = new System.Windows.Forms.Label();
             this.lblPerformPs = new System.Windows.Forms.Label();
             this.lblPerformWs = new System.Windows.Forms.Label();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.close = new System.Windows.Forms.PictureBox();
             this.textBoxQuarterly = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -90,15 +88,25 @@
             this.label17 = new System.Windows.Forms.Label();
             this.lblInitialGrade = new System.Windows.Forms.Label();
             this.lblQuaterGrade = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.pictureWarning = new System.Windows.Forms.PictureBox();
+            this.confuse = new System.Windows.Forms.PictureBox();
+            this.close = new System.Windows.Forms.PictureBox();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.labelWarningText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWrittenWorks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPerformanceTask)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureWarning)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.confuse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.close)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(337, 114);
+            this.label9.Location = new System.Drawing.Point(337, 117);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(58, 19);
             this.label9.TabIndex = 8;
@@ -107,7 +115,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(92, 114);
+            this.label8.Location = new System.Drawing.Point(90, 117);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(58, 19);
             this.label8.TabIndex = 9;
@@ -117,43 +125,47 @@
             // 
             this.subjectname.AutoSize = true;
             this.subjectname.Font = new System.Drawing.Font("Microsoft Tai Le", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subjectname.Location = new System.Drawing.Point(278, 23);
+            this.subjectname.ForeColor = System.Drawing.Color.Snow;
+            this.subjectname.Location = new System.Drawing.Point(246, 7);
             this.subjectname.Name = "subjectname";
-            this.subjectname.Size = new System.Drawing.Size(98, 31);
+            this.subjectname.Size = new System.Drawing.Size(149, 31);
             this.subjectname.TabIndex = 9;
-            this.subjectname.Text = "Subject";
+            this.subjectname.Text = "Enter Grade";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(46, 223);
+            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(36, 223);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 19);
+            this.label1.Size = new System.Drawing.Size(112, 19);
             this.label1.TabIndex = 9;
             this.label1.Text = "Written Works";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(48, 357);
+            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(36, 357);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 19);
+            this.label2.Size = new System.Drawing.Size(129, 19);
             this.label2.TabIndex = 9;
             this.label2.Text = "Peformance Task";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(48, 490);
+            this.label3.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(36, 491);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(150, 19);
+            this.label3.Size = new System.Drawing.Size(163, 19);
             this.label3.TabIndex = 9;
             this.label3.Text = "Quarterly Assessment";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(46, 71);
+            this.label4.Location = new System.Drawing.Point(44, 74);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 19);
             this.label4.TabIndex = 9;
@@ -162,7 +174,8 @@
             // textBoxStudetname
             // 
             this.textBoxStudetname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxStudetname.Location = new System.Drawing.Point(156, 66);
+            this.textBoxStudetname.Enabled = false;
+            this.textBoxStudetname.Location = new System.Drawing.Point(156, 69);
             this.textBoxStudetname.Name = "textBoxStudetname";
             this.textBoxStudetname.Size = new System.Drawing.Size(396, 27);
             this.textBoxStudetname.TabIndex = 14;
@@ -170,7 +183,8 @@
             // textBoxSection
             // 
             this.textBoxSection.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxSection.Location = new System.Drawing.Point(156, 110);
+            this.textBoxSection.Enabled = false;
+            this.textBoxSection.Location = new System.Drawing.Point(156, 113);
             this.textBoxSection.Name = "textBoxSection";
             this.textBoxSection.Size = new System.Drawing.Size(151, 27);
             this.textBoxSection.TabIndex = 14;
@@ -178,7 +192,8 @@
             // textBoxSubject
             // 
             this.textBoxSubject.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxSubject.Location = new System.Drawing.Point(401, 110);
+            this.textBoxSubject.Enabled = false;
+            this.textBoxSubject.Location = new System.Drawing.Point(401, 113);
             this.textBoxSubject.Name = "textBoxSubject";
             this.textBoxSubject.Size = new System.Drawing.Size(151, 27);
             this.textBoxSubject.TabIndex = 14;
@@ -191,15 +206,15 @@
             "2nd Quarter",
             "3rd Quarter",
             "4th Quarter"});
-            this.comboBoxQuarter.Location = new System.Drawing.Point(156, 158);
+            this.comboBoxQuarter.Location = new System.Drawing.Point(156, 161);
             this.comboBoxQuarter.Name = "comboBoxQuarter";
-            this.comboBoxQuarter.Size = new System.Drawing.Size(141, 27);
+            this.comboBoxQuarter.Size = new System.Drawing.Size(151, 27);
             this.comboBoxQuarter.TabIndex = 16;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(97, 162);
+            this.label5.Location = new System.Drawing.Point(89, 165);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 19);
             this.label5.TabIndex = 15;
@@ -213,7 +228,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.Snow;
-            this.btnSave.Location = new System.Drawing.Point(274, 661);
+            this.btnSave.Location = new System.Drawing.Point(245, 663);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(123, 35);
             this.btnSave.TabIndex = 17;
@@ -224,7 +239,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(48, 310);
+            this.label6.Location = new System.Drawing.Point(49, 310);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(46, 19);
             this.label6.TabIndex = 9;
@@ -233,7 +248,7 @@
             // lblWrittenTotal
             // 
             this.lblWrittenTotal.AutoSize = true;
-            this.lblWrittenTotal.Location = new System.Drawing.Point(100, 310);
+            this.lblWrittenTotal.Location = new System.Drawing.Point(101, 310);
             this.lblWrittenTotal.Name = "lblWrittenTotal";
             this.lblWrittenTotal.Size = new System.Drawing.Size(17, 19);
             this.lblWrittenTotal.TabIndex = 9;
@@ -242,7 +257,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(158, 310);
+            this.label7.Location = new System.Drawing.Point(159, 310);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(28, 19);
             this.label7.TabIndex = 9;
@@ -251,7 +266,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(263, 310);
+            this.label10.Location = new System.Drawing.Point(264, 310);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(34, 19);
             this.label10.TabIndex = 9;
@@ -260,7 +275,7 @@
             // lblWrittenPs
             // 
             this.lblWrittenPs.AutoSize = true;
-            this.lblWrittenPs.Location = new System.Drawing.Point(192, 310);
+            this.lblWrittenPs.Location = new System.Drawing.Point(193, 310);
             this.lblWrittenPs.Name = "lblWrittenPs";
             this.lblWrittenPs.Size = new System.Drawing.Size(17, 19);
             this.lblWrittenPs.TabIndex = 9;
@@ -269,7 +284,7 @@
             // lblWrittenWs
             // 
             this.lblWrittenWs.AutoSize = true;
-            this.lblWrittenWs.Location = new System.Drawing.Point(303, 310);
+            this.lblWrittenWs.Location = new System.Drawing.Point(304, 310);
             this.lblWrittenWs.Name = "lblWrittenWs";
             this.lblWrittenWs.Size = new System.Drawing.Size(17, 19);
             this.lblWrittenWs.TabIndex = 9;
@@ -313,7 +328,7 @@
             this.dataGridViewWrittenWorks.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewWrittenWorks.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.dataGridViewWrittenWorks.GridColor = System.Drawing.Color.DarkGray;
-            this.dataGridViewWrittenWorks.Location = new System.Drawing.Point(49, 245);
+            this.dataGridViewWrittenWorks.Location = new System.Drawing.Point(50, 245);
             this.dataGridViewWrittenWorks.Name = "dataGridViewWrittenWorks";
             this.dataGridViewWrittenWorks.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridViewWrittenWorks.RowHeadersVisible = false;
@@ -431,7 +446,7 @@
             this.dataGridViewPerformanceTask.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewPerformanceTask.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.dataGridViewPerformanceTask.GridColor = System.Drawing.Color.DarkGray;
-            this.dataGridViewPerformanceTask.Location = new System.Drawing.Point(49, 384);
+            this.dataGridViewPerformanceTask.Location = new System.Drawing.Point(50, 384);
             this.dataGridViewPerformanceTask.Name = "dataGridViewPerformanceTask";
             this.dataGridViewPerformanceTask.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridViewPerformanceTask.RowHeadersVisible = false;
@@ -514,7 +529,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(48, 443);
+            this.label11.Location = new System.Drawing.Point(49, 443);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(46, 19);
             this.label11.TabIndex = 9;
@@ -523,7 +538,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(158, 443);
+            this.label12.Location = new System.Drawing.Point(159, 443);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(28, 19);
             this.label12.TabIndex = 9;
@@ -532,7 +547,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(263, 443);
+            this.label13.Location = new System.Drawing.Point(264, 443);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(34, 19);
             this.label13.TabIndex = 9;
@@ -541,7 +556,7 @@
             // lblperformanceTotal
             // 
             this.lblperformanceTotal.AutoSize = true;
-            this.lblperformanceTotal.Location = new System.Drawing.Point(100, 443);
+            this.lblperformanceTotal.Location = new System.Drawing.Point(101, 443);
             this.lblperformanceTotal.Name = "lblperformanceTotal";
             this.lblperformanceTotal.Size = new System.Drawing.Size(17, 19);
             this.lblperformanceTotal.TabIndex = 9;
@@ -550,7 +565,7 @@
             // lblPerformPs
             // 
             this.lblPerformPs.AutoSize = true;
-            this.lblPerformPs.Location = new System.Drawing.Point(192, 443);
+            this.lblPerformPs.Location = new System.Drawing.Point(193, 443);
             this.lblPerformPs.Name = "lblPerformPs";
             this.lblPerformPs.Size = new System.Drawing.Size(17, 19);
             this.lblPerformPs.TabIndex = 9;
@@ -559,35 +574,16 @@
             // lblPerformWs
             // 
             this.lblPerformWs.AutoSize = true;
-            this.lblPerformWs.Location = new System.Drawing.Point(303, 443);
+            this.lblPerformWs.Location = new System.Drawing.Point(304, 443);
             this.lblPerformWs.Name = "lblPerformWs";
             this.lblPerformWs.Size = new System.Drawing.Size(17, 19);
             this.lblPerformWs.TabIndex = 9;
             this.lblPerformWs.Text = "0";
             // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::TeacherPortal.Properties.Resources.edit2;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            // 
-            // close
-            // 
-            this.close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.close.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.close.Image = global::TeacherPortal.Properties.Resources.square;
-            this.close.Location = new System.Drawing.Point(639, 1);
-            this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(32, 30);
-            this.close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.close.TabIndex = 13;
-            this.close.TabStop = false;
-            this.close.Click += new System.EventHandler(this.close_Click);
-            // 
             // textBoxQuarterly
             // 
             this.textBoxQuarterly.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxQuarterly.Location = new System.Drawing.Point(52, 513);
+            this.textBoxQuarterly.Location = new System.Drawing.Point(130, 516);
             this.textBoxQuarterly.Name = "textBoxQuarterly";
             this.textBoxQuarterly.Size = new System.Drawing.Size(74, 27);
             this.textBoxQuarterly.TabIndex = 18;
@@ -596,7 +592,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(147, 517);
+            this.label14.Location = new System.Drawing.Point(229, 520);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(28, 19);
             this.label14.TabIndex = 9;
@@ -605,7 +601,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(252, 517);
+            this.label15.Location = new System.Drawing.Point(334, 520);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(34, 19);
             this.label15.TabIndex = 9;
@@ -614,7 +610,7 @@
             // lblQuaterPs
             // 
             this.lblQuaterPs.AutoSize = true;
-            this.lblQuaterPs.Location = new System.Drawing.Point(181, 517);
+            this.lblQuaterPs.Location = new System.Drawing.Point(263, 520);
             this.lblQuaterPs.Name = "lblQuaterPs";
             this.lblQuaterPs.Size = new System.Drawing.Size(17, 19);
             this.lblQuaterPs.TabIndex = 9;
@@ -623,7 +619,7 @@
             // lblQuaterWs
             // 
             this.lblQuaterWs.AutoSize = true;
-            this.lblQuaterWs.Location = new System.Drawing.Point(292, 517);
+            this.lblQuaterWs.Location = new System.Drawing.Point(374, 520);
             this.lblQuaterWs.Name = "lblQuaterWs";
             this.lblQuaterWs.Size = new System.Drawing.Size(17, 19);
             this.lblQuaterWs.TabIndex = 9;
@@ -632,25 +628,27 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(53, 577);
+            this.label16.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(62, 584);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(93, 19);
+            this.label16.Size = new System.Drawing.Size(99, 19);
             this.label16.TabIndex = 9;
             this.label16.Text = "Initial Grade:";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(212, 577);
+            this.label17.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(221, 584);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(121, 19);
+            this.label17.Size = new System.Drawing.Size(129, 19);
             this.label17.TabIndex = 9;
             this.label17.Text = "Quarterly Grade: ";
             // 
             // lblInitialGrade
             // 
             this.lblInitialGrade.AutoSize = true;
-            this.lblInitialGrade.Location = new System.Drawing.Point(147, 577);
+            this.lblInitialGrade.Location = new System.Drawing.Point(156, 584);
             this.lblInitialGrade.Name = "lblInitialGrade";
             this.lblInitialGrade.Size = new System.Drawing.Size(17, 19);
             this.lblInitialGrade.TabIndex = 9;
@@ -659,19 +657,97 @@
             // lblQuaterGrade
             // 
             this.lblQuaterGrade.AutoSize = true;
-            this.lblQuaterGrade.Location = new System.Drawing.Point(325, 578);
+            this.lblQuaterGrade.Location = new System.Drawing.Point(345, 584);
             this.lblQuaterGrade.Name = "lblQuaterGrade";
             this.lblQuaterGrade.Size = new System.Drawing.Size(17, 19);
             this.lblQuaterGrade.TabIndex = 9;
             this.lblQuaterGrade.Text = "0";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.panel1.Controls.Add(this.confuse);
+            this.panel1.Controls.Add(this.close);
+            this.panel1.Controls.Add(this.subjectname);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(603, 47);
+            this.panel1.TabIndex = 19;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(46, 520);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(84, 19);
+            this.label18.TabIndex = 9;
+            this.label18.Text = "Enter Score";
+            // 
+            // pictureWarning
+            // 
+            this.pictureWarning.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureWarning.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureWarning.Image = global::TeacherPortal.Properties.Resources.warning1;
+            this.pictureWarning.Location = new System.Drawing.Point(311, 161);
+            this.pictureWarning.Name = "pictureWarning";
+            this.pictureWarning.Size = new System.Drawing.Size(30, 27);
+            this.pictureWarning.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureWarning.TabIndex = 13;
+            this.pictureWarning.TabStop = false;
+            this.pictureWarning.Visible = false;
+            // 
+            // confuse
+            // 
+            this.confuse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.confuse.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.confuse.Image = global::TeacherPortal.Properties.Resources.confused;
+            this.confuse.Location = new System.Drawing.Point(3, 0);
+            this.confuse.Name = "confuse";
+            this.confuse.Size = new System.Drawing.Size(39, 41);
+            this.confuse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.confuse.TabIndex = 13;
+            this.confuse.TabStop = false;
+            // 
+            // close
+            // 
+            this.close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.close.Image = global::TeacherPortal.Properties.Resources.reject__1_2;
+            this.close.Location = new System.Drawing.Point(568, 3);
+            this.close.Name = "close";
+            this.close.Size = new System.Drawing.Size(32, 30);
+            this.close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.close.TabIndex = 13;
+            this.close.TabStop = false;
+            this.close.Click += new System.EventHandler(this.close_Click);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::TeacherPortal.Properties.Resources.edit2;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            // 
+            // labelWarningText
+            // 
+            this.labelWarningText.AutoSize = true;
+            this.labelWarningText.ForeColor = System.Drawing.Color.IndianRed;
+            this.labelWarningText.Location = new System.Drawing.Point(347, 165);
+            this.labelWarningText.Name = "labelWarningText";
+            this.labelWarningText.Size = new System.Drawing.Size(193, 19);
+            this.labelWarningText.TabIndex = 8;
+            this.labelWarningText.Text = "Please choose what quarter.";
+            this.labelWarningText.Visible = false;
             // 
             // frmEnterGrades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Snow;
-            this.ClientSize = new System.Drawing.Size(674, 721);
+            this.ClientSize = new System.Drawing.Size(603, 721);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureWarning);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.textBoxQuarterly);
             this.Controls.Add(this.dataGridViewPerformanceTask);
             this.Controls.Add(this.dataGridViewWrittenWorks);
@@ -681,9 +757,9 @@
             this.Controls.Add(this.textBoxSubject);
             this.Controls.Add(this.textBoxSection);
             this.Controls.Add(this.textBoxStudetname);
-            this.Controls.Add(this.close);
+            this.Controls.Add(this.labelWarningText);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.subjectname);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
@@ -716,6 +792,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWrittenWorks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPerformanceTask)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureWarning)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.confuse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.close)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -781,5 +861,10 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label lblInitialGrade;
         private System.Windows.Forms.Label lblQuaterGrade;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox confuse;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.PictureBox pictureWarning;
+        private System.Windows.Forms.Label labelWarningText;
     }
 }

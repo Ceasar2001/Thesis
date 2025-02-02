@@ -28,32 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControlSubjects = new System.Windows.Forms.TabControl();
             this.Grading = new System.Windows.Forms.TabPage();
             this.dataGridStudentWithGrades = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lrn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.section = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WrittenWork = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PerformanceTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuaterlyAsses = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InitialGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quarter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuarterlyGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEdit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colDelete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboSubject = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.comboSection = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnshowstudent = new System.Windows.Forms.Button();
-            this.btnGrade = new System.Windows.Forms.Button();
             this.close = new System.Windows.Forms.PictureBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -95,38 +91,36 @@
             this.dataGridStudentWithGrades.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridStudentWithGrades.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridStudentWithGrades.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridStudentWithGrades.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridStudentWithGrades.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridStudentWithGrades.ColumnHeadersHeight = 30;
             this.dataGridStudentWithGrades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column9,
-            this.Column8,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column11,
-            this.Column7,
-            this.Column10,
-            this.colEdit,
-            this.colDelete});
+            this.Lrn,
+            this.studentname,
+            this.section,
+            this.subject,
+            this.WrittenWork,
+            this.PerformanceTask,
+            this.QuaterlyAsses,
+            this.InitialGrade,
+            this.Quarter,
+            this.QuarterlyGrade,
+            this.colEdit});
             this.dataGridStudentWithGrades.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridStudentWithGrades.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridStudentWithGrades.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridStudentWithGrades.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridStudentWithGrades.EnableHeadersVisualStyles = false;
             this.dataGridStudentWithGrades.GridColor = System.Drawing.SystemColors.Control;
@@ -138,82 +132,75 @@
             this.dataGridStudentWithGrades.TabIndex = 1;
             this.dataGridStudentWithGrades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridStudentWithGrades_CellContentClick);
             // 
-            // Column1
+            // Lrn
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column1.HeaderText = "Lrn";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 52;
+            this.Lrn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Lrn.HeaderText = "Lrn";
+            this.Lrn.Name = "Lrn";
+            this.Lrn.Width = 52;
             // 
-            // Column2
+            // studentname
             // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column2.HeaderText = "Student Name";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 127;
+            this.studentname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.studentname.HeaderText = "Student Name";
+            this.studentname.Name = "studentname";
+            this.studentname.Width = 127;
             // 
-            // Column9
+            // section
             // 
-            this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column9.HeaderText = "Section";
-            this.Column9.Name = "Column9";
-            this.Column9.Visible = false;
-            this.Column9.Width = 83;
+            this.section.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.section.HeaderText = "Section";
+            this.section.Name = "section";
+            this.section.Visible = false;
+            this.section.Width = 83;
             // 
-            // Column8
+            // subject
             // 
-            this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column8.HeaderText = "Subject";
-            this.Column8.Name = "Column8";
-            this.Column8.Visible = false;
+            this.subject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.subject.HeaderText = "Subject";
+            this.subject.Name = "subject";
+            this.subject.Visible = false;
             // 
-            // Column3
+            // WrittenWork
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column3.HeaderText = "Written Works";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 126;
+            this.WrittenWork.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.WrittenWork.HeaderText = "Written Works";
+            this.WrittenWork.Name = "WrittenWork";
+            this.WrittenWork.Width = 126;
             // 
-            // Column4
+            // PerformanceTask
             // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column4.HeaderText = "Performance Task";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 149;
+            this.PerformanceTask.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.PerformanceTask.HeaderText = "Performance Task";
+            this.PerformanceTask.Name = "PerformanceTask";
+            this.PerformanceTask.Width = 149;
             // 
-            // Column5
+            // QuaterlyAsses
             // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column5.HeaderText = "Quarterly Assessment";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 173;
+            this.QuaterlyAsses.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.QuaterlyAsses.HeaderText = "Quarterly Assessment";
+            this.QuaterlyAsses.Name = "QuaterlyAsses";
+            this.QuaterlyAsses.Width = 173;
             // 
-            // Column6
+            // InitialGrade
             // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column6.HeaderText = "Initial Grade";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 113;
+            this.InitialGrade.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.InitialGrade.HeaderText = "Initial Grade";
+            this.InitialGrade.Name = "InitialGrade";
+            this.InitialGrade.Width = 113;
             // 
-            // Column11
+            // Quarter
             // 
-            this.Column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column11.HeaderText = "Quarter";
-            this.Column11.Name = "Column11";
-            this.Column11.Width = 82;
+            this.Quarter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Quarter.HeaderText = "Quarter";
+            this.Quarter.Name = "Quarter";
+            this.Quarter.Width = 82;
             // 
-            // Column7
+            // QuarterlyGrade
             // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column7.HeaderText = "Quarterly Grade";
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 137;
-            // 
-            // Column10
-            // 
-            this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column10.HeaderText = "Status";
-            this.Column10.Name = "Column10";
+            this.QuarterlyGrade.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.QuarterlyGrade.HeaderText = "Quarterly Grade";
+            this.QuarterlyGrade.Name = "QuarterlyGrade";
             // 
             // colEdit
             // 
@@ -224,23 +211,13 @@
             this.colEdit.ToolTipText = "Close Academic Year";
             this.colEdit.Width = 5;
             // 
-            // colDelete
-            // 
-            this.colDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colDelete.HeaderText = "";
-            this.colDelete.Image = global::TeacherPortal.Properties.Resources.delete1;
-            this.colDelete.Name = "colDelete";
-            this.colDelete.Width = 5;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.comboSubject);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.comboSection);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnshowstudent);
-            this.panel1.Controls.Add(this.btnGrade);
             this.panel1.Controls.Add(this.close);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 3);
@@ -272,6 +249,7 @@
             this.comboSection.Name = "comboSection";
             this.comboSection.Size = new System.Drawing.Size(141, 27);
             this.comboSection.TabIndex = 6;
+            this.comboSection.SelectedIndexChanged += new System.EventHandler(this.comboSection_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -281,15 +259,6 @@
             this.label8.Size = new System.Drawing.Size(58, 19);
             this.label8.TabIndex = 5;
             this.label8.Text = "Section";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(149, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 19);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "subject";
             // 
             // btnshowstudent
             // 
@@ -306,21 +275,6 @@
             this.btnshowstudent.Text = "Show Student";
             this.btnshowstudent.UseVisualStyleBackColor = false;
             this.btnshowstudent.Click += new System.EventHandler(this.btnshowstudent_Click);
-            // 
-            // btnGrade
-            // 
-            this.btnGrade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.btnGrade.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGrade.FlatAppearance.BorderSize = 0;
-            this.btnGrade.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGrade.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGrade.ForeColor = System.Drawing.Color.Snow;
-            this.btnGrade.Location = new System.Drawing.Point(5, 3);
-            this.btnGrade.Name = "btnGrade";
-            this.btnGrade.Size = new System.Drawing.Size(123, 35);
-            this.btnGrade.TabIndex = 1;
-            this.btnGrade.Text = "Start Grading";
-            this.btnGrade.UseVisualStyleBackColor = false;
             // 
             // close
             // 
@@ -380,27 +334,23 @@
         private System.Windows.Forms.DataGridView dataGridStudentWithGrades;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox close;
-        private System.Windows.Forms.Button btnGrade;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboSubject;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboSection;
         private System.Windows.Forms.Button btnshowstudent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Lrn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn studentname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn section;
+        private System.Windows.Forms.DataGridViewTextBoxColumn subject;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WrittenWork;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PerformanceTask;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QuaterlyAsses;
+        private System.Windows.Forms.DataGridViewTextBoxColumn InitialGrade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quarter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QuarterlyGrade;
         private System.Windows.Forms.DataGridViewImageColumn colEdit;
-        private System.Windows.Forms.DataGridViewImageColumn colDelete;
     }
 }
