@@ -99,35 +99,30 @@ namespace TeacherPortal
                     // Open the connection and execute the query
                     using (SQLiteConnection cn = dbConnection.GetConnection)
                     {
-                        // Check if the connection is open before proceeding
-                        if (cn.State == System.Data.ConnectionState.Open)
+                        // Explicitly open the connection
+                        cn.Open();
+
+                        string query = "SELECT username, password FROM tbluser WHERE email = @Email";
+                        using (SQLiteCommand cmd = new SQLiteCommand(query, cn))
                         {
-                            string query = "SELECT username, password FROM tbluser WHERE email = @Email";
-                            using (SQLiteCommand cmd = new SQLiteCommand(query, cn))
+                            cmd.Parameters.AddWithValue("@Email", email);
+
+                            using (SQLiteDataReader reader = cmd.ExecuteReader())
                             {
-                                cmd.Parameters.AddWithValue("@Email", email);
-
-                                using (SQLiteDataReader reader = cmd.ExecuteReader())
+                                if (reader.Read())
                                 {
-                                    if (reader.Read())
-                                    {
-                                        string username = reader["username"].ToString();
-                                        string password = reader["password"].ToString();
+                                    string username = reader["username"].ToString();
+                                    string password = reader["password"].ToString();
 
-                                        MessageBox.Show($"Your account details:\n\nUsername: {username}\nPassword: {password}",
-                                                         "Account Retrieved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Email address not found. Please try again.",
-                                                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    }
+                                    MessageBox.Show($"Your account details:\n\nUsername: {username}\nPassword: {password}",
+                                                     "Account Retrieved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Email address not found. Please try again.",
+                                                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Connection not open. Please try again later.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -152,6 +147,7 @@ namespace TeacherPortal
                 MessageBox.Show("Please enter a valid email address.", "Invalid Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
 
 
         private void labelError_Click(object sender, EventArgs e)

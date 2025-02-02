@@ -103,5 +103,14 @@ namespace TeacherPortal
             profile.BringToFront();
             profile.Show();
         }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            frmReport report = new frmReport();
+            report.TopLevel = false;
+            mainPanel.Controls.Add(report);
+            report.BringToFront();
+            report.Show();
+        }
     }
 }

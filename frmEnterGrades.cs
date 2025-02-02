@@ -1,73 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SQLite;
-
+using System.Windows.Forms;
 
 namespace TeacherPortal
 {
     public partial class frmEnterGrades : Form
     {
         private DBConnection dbConnection;
+        private string studentLrn;  // Added LRN to associate with the student
 
         public frmEnterGrades(string lrn, string studentName, string section, string subject)
         {
             InitializeComponent();
             dbConnection = new DBConnection();
+            studentLrn = lrn;  // Store the student's LRN
 
             // Populate the textboxes with the values passed to the form
             textBoxStudetname.Text = studentName;
             textBoxSection.Text = section;
             textBoxSubject.Text = subject;
 
-            // If you need to save the LRN for later use (for example when saving grades), you can store it in a private field or directly use it
-            //textBoxLrn.Text = lrn;  // Assuming you want to display LRN in a textbox (create it if not already done)
+            // You can also set other fields like LRN if needed
+            // textBoxLrn.Text = lrn;
         }
-
 
         private void close_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
 
-
-
-        // Written Works
-        // High Score for Written Works (Change this value accordingly)
-        private int highScoreWrittenWorks = 40; // Example: High score is 40
+        // Written Works Logic...
+        private int highScoreWrittenWorks = 40;
 
         private void dataGridViewWrittenWorks_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             UpdateWrittenTotal();
         }
 
-        private void dataGridViewWrittenWorks_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            if (e.Control is TextBox textBox)
-            {
-                textBox.KeyPress -= TextBox_KeyPress;
-                textBox.KeyPress += TextBox_KeyPress;
-            }
-        }
-
-        private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
         private void UpdateWrittenTotal()
         {
             int total = 0;
-
             foreach (DataGridViewRow row in dataGridViewWrittenWorks.Rows)
             {
                 for (int i = 0; i < 10; i++)
@@ -80,41 +53,26 @@ namespace TeacherPortal
             }
 
             lblWrittenTotal.Text = total.ToString();
-
             double ps = highScoreWrittenWorks > 0 ? ((double)total / highScoreWrittenWorks) * 100 : 0;
             lblWrittenPs.Text = ps.ToString("0.00");
 
             double ws = ps * 0.30;
             lblWrittenWs.Text = ws.ToString("0.00");
 
-            // Recalculate Grades
             ComputeGrades();
         }
 
-
-
-        // Performance Task
-        // High Score for Performance Task (Change this value accordingly)
-        private int highScorePerformanceTask = 20; // Example: High score is 20
+        // Performance Task Logic...
+        private int highScorePerformanceTask = 20;
 
         private void dataGridViewPerformanceTask_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             UpdatePerformanceTotal();
         }
 
-        private void dataGridViewPerformanceTask_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-        {
-            if (e.Control is TextBox textBox)
-            {
-                textBox.KeyPress -= TextBox_KeyPress;
-                textBox.KeyPress += TextBox_KeyPress;
-            }
-        }
-
         private void UpdatePerformanceTotal()
         {
             int total = 0;
-
             foreach (DataGridViewRow row in dataGridViewPerformanceTask.Rows)
             {
                 for (int i = 0; i < 10; i++)
@@ -127,20 +85,16 @@ namespace TeacherPortal
             }
 
             lblperformanceTotal.Text = total.ToString();
-
             double ps = highScorePerformanceTask > 0 ? ((double)total / highScorePerformanceTask) * 100 : 0;
             lblPerformPs.Text = ps.ToString("0.00");
 
             double ws = ps * 0.50;
             lblPerformWs.Text = ws.ToString("0.00");
 
-            // Recalculate Grades
             ComputeGrades();
         }
 
-
-        // Quarterly Assessment
-        // High Score for Quarterly Assessment (Change if needed)
+        // Quarterly Assessment Logic...
         private int highScoreQuarterly = 40;
 
         private void UpdateQuarterlyScores()
@@ -166,41 +120,27 @@ namespace TeacherPortal
                 lblQuaterWs.Text = "0.00";
             }
 
-            // Recalculate Grades
             ComputeGrades();
         }
-
 
         private void textBoxQuarterly_TextChanged(object sender, EventArgs e)
         {
             UpdateQuarterlyScores();
         }
 
-
-
-
-
-        //Initial Grade(IG) = WS of Written Works + WS of Performance Task + WS of Quarterly Assessment
-        //
-
-
         // Function to Compute Initial and Quarterly Grades
         private void ComputeGrades()
         {
-            // Parse the Weighted Scores (WS) from labels
             double wsWritten = double.TryParse(lblWrittenWs.Text, out double wsw) ? wsw : 0;
             double wsPerformance = double.TryParse(lblPerformWs.Text, out double wsp) ? wsp : 0;
             double wsQuarterly = double.TryParse(lblQuaterWs.Text, out double wsq) ? wsq : 0;
 
-            // Compute Initial Grade (IG)
             double initialGrade = wsWritten + wsPerformance + wsQuarterly;
             lblInitialGrade.Text = initialGrade.ToString("0.00");
 
-            // Compute Quarterly Grade (QG)
             double quarterlyGrade = (initialGrade * 0.6) + 40;
             lblQuaterGrade.Text = quarterlyGrade.ToString("0");
         }
-
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -208,6 +148,26 @@ namespace TeacherPortal
             {
                 try
                 {
+                    // Check if comboBoxQuarter is empty
+                    if (comboBoxQuarter.SelectedItem == null || string.IsNullOrEmpty(comboBoxQuarter.SelectedItem.ToString()))
+                    {
+                        // Display warning picture and text
+                        pictureWarning.Visible = true;
+                        labelWarningText.Visible = true;
+                        labelWarningText.Text = "Please select a quarter before saving.";
+
+                        // Optionally, set focus back to the comboBoxQuarter
+                        comboBoxQuarter.Focus();
+
+                        return; // Prevent the save from happening
+                    }
+                    else
+                    {
+                        // Hide warning picture and text when a quarter is selected
+                        pictureWarning.Visible = false;
+                        labelWarningText.Visible = false;
+                    }
+
                     using (SQLiteConnection cn = dbConnection.GetConnection)
                     {
                         cn.Open();
@@ -215,27 +175,19 @@ namespace TeacherPortal
                         {
                             try
                             {
-                                string studentName = textBoxStudetname.Text;
-                                string section = textBoxSection.Text;
-                                string subject = textBoxSubject.Text;
                                 string quarter = comboBoxQuarter.SelectedItem.ToString();
-
-                                if (quarter == null)
-                                {
-                                    MessageBox.Show("Please select a quarter.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                    return;
-                                }
 
                                 double writtenScore = double.TryParse(lblWrittenWs.Text, out double wsWritten) ? wsWritten : 0;
                                 double performanceScore = double.TryParse(lblPerformWs.Text, out double wsPerformance) ? wsPerformance : 0;
                                 double quarterlyScore = double.TryParse(lblQuaterWs.Text, out double wsQuarterly) ? wsQuarterly : 0;
                                 double totalGrade = writtenScore + performanceScore + quarterlyScore;
 
-                                using (SQLiteCommand cmd = new SQLiteCommand("INSERT INTO tblGrade (studentName, section, subject, quarter, writtenScore, performanceScore, quarterlyScore, totalGrade) VALUES (@studentName, @section, @subject, @quarter, @writtenScore, @performanceScore, @quarterlyScore, @totalGrade)", cn, transaction))
+                                // Insert grade into the database, including the student's LRN as a foreign key
+                                using (SQLiteCommand cmd = new SQLiteCommand("INSERT INTO tblGrade (lrn, section, subject, quarter, writtenScore, performanceScore, quarterlyScore, totalGrade) VALUES (@lrn, @section, @subject, @quarter, @writtenScore, @performanceScore, @quarterlyScore, @totalGrade)", cn, transaction))
                                 {
-                                    cmd.Parameters.AddWithValue("@studentName", studentName);
-                                    cmd.Parameters.AddWithValue("@section", section);
-                                    cmd.Parameters.AddWithValue("@subject", subject);
+                                    cmd.Parameters.AddWithValue("@lrn", studentLrn);  // Use the student's LRN here
+                                    cmd.Parameters.AddWithValue("@section", textBoxSection.Text);
+                                    cmd.Parameters.AddWithValue("@subject", textBoxSubject.Text);
                                     cmd.Parameters.AddWithValue("@quarter", quarter);
                                     cmd.Parameters.AddWithValue("@writtenScore", writtenScore);
                                     cmd.Parameters.AddWithValue("@performanceScore", performanceScore);
@@ -251,7 +203,7 @@ namespace TeacherPortal
                                 // Notify frmGrading to refresh
                                 if (Application.OpenForms["frmGrading"] is frmGrading gradingForm)
                                 {
-                                    gradingForm.LoadStudentsWithGrades(section, subject);
+                                    gradingForm.LoadStudentsWithGrades(textBoxSection.Text, textBoxSubject.Text);
                                 }
 
                                 this.Dispose();
@@ -272,5 +224,4 @@ namespace TeacherPortal
         }
 
     }
-
 }

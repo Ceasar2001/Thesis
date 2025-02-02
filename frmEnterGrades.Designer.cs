@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.subjectname = new System.Windows.Forms.Label();
@@ -89,18 +89,18 @@
             this.lblInitialGrade = new System.Windows.Forms.Label();
             this.lblQuaterGrade = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label18 = new System.Windows.Forms.Label();
-            this.pictureWarning = new System.Windows.Forms.PictureBox();
             this.confuse = new System.Windows.Forms.PictureBox();
             this.close = new System.Windows.Forms.PictureBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.pictureWarning = new System.Windows.Forms.PictureBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.labelWarningText = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWrittenWorks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPerformanceTask)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureWarning)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.confuse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.close)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureWarning)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -297,14 +297,14 @@
             this.dataGridViewWrittenWorks.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewWrittenWorks.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewWrittenWorks.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewWrittenWorks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewWrittenWorks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewWrittenWorks.ColumnHeadersHeight = 30;
             this.dataGridViewWrittenWorks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.w1,
@@ -318,14 +318,14 @@
             this.w9,
             this.w10});
             this.dataGridViewWrittenWorks.Cursor = System.Windows.Forms.Cursors.IBeam;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewWrittenWorks.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewWrittenWorks.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewWrittenWorks.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.dataGridViewWrittenWorks.GridColor = System.Drawing.Color.DarkGray;
             this.dataGridViewWrittenWorks.Location = new System.Drawing.Point(50, 245);
@@ -336,7 +336,6 @@
             this.dataGridViewWrittenWorks.Size = new System.Drawing.Size(454, 57);
             this.dataGridViewWrittenWorks.TabIndex = 2;
             this.dataGridViewWrittenWorks.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWrittenWorks_CellValueChanged);
-            this.dataGridViewWrittenWorks.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewWrittenWorks_EditingControlShowing);
             // 
             // w1
             // 
@@ -415,14 +414,14 @@
             this.dataGridViewPerformanceTask.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewPerformanceTask.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewPerformanceTask.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewPerformanceTask.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewPerformanceTask.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewPerformanceTask.ColumnHeadersHeight = 30;
             this.dataGridViewPerformanceTask.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.p1,
@@ -436,14 +435,14 @@
             this.p9,
             this.p10});
             this.dataGridViewPerformanceTask.Cursor = System.Windows.Forms.Cursors.IBeam;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewPerformanceTask.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewPerformanceTask.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewPerformanceTask.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.dataGridViewPerformanceTask.GridColor = System.Drawing.Color.DarkGray;
             this.dataGridViewPerformanceTask.Location = new System.Drawing.Point(50, 384);
@@ -454,7 +453,6 @@
             this.dataGridViewPerformanceTask.Size = new System.Drawing.Size(454, 56);
             this.dataGridViewPerformanceTask.TabIndex = 2;
             this.dataGridViewPerformanceTask.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPerformanceTask_CellValueChanged);
-            this.dataGridViewPerformanceTask.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewPerformanceTask_EditingControlShowing);
             // 
             // p1
             // 
@@ -675,28 +673,6 @@
             this.panel1.Size = new System.Drawing.Size(603, 47);
             this.panel1.TabIndex = 19;
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(46, 520);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(84, 19);
-            this.label18.TabIndex = 9;
-            this.label18.Text = "Enter Score";
-            // 
-            // pictureWarning
-            // 
-            this.pictureWarning.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureWarning.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureWarning.Image = global::TeacherPortal.Properties.Resources.warning1;
-            this.pictureWarning.Location = new System.Drawing.Point(311, 161);
-            this.pictureWarning.Name = "pictureWarning";
-            this.pictureWarning.Size = new System.Drawing.Size(30, 27);
-            this.pictureWarning.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureWarning.TabIndex = 13;
-            this.pictureWarning.TabStop = false;
-            this.pictureWarning.Visible = false;
-            // 
             // confuse
             // 
             this.confuse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -722,6 +698,28 @@
             this.close.TabStop = false;
             this.close.Click += new System.EventHandler(this.close_Click);
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(46, 520);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(84, 19);
+            this.label18.TabIndex = 9;
+            this.label18.Text = "Enter Score";
+            // 
+            // pictureWarning
+            // 
+            this.pictureWarning.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureWarning.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureWarning.Image = global::TeacherPortal.Properties.Resources.warning1;
+            this.pictureWarning.Location = new System.Drawing.Point(311, 161);
+            this.pictureWarning.Name = "pictureWarning";
+            this.pictureWarning.Size = new System.Drawing.Size(30, 27);
+            this.pictureWarning.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureWarning.TabIndex = 13;
+            this.pictureWarning.TabStop = false;
+            this.pictureWarning.Visible = false;
+            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.HeaderText = "";
@@ -737,6 +735,7 @@
             this.labelWarningText.Size = new System.Drawing.Size(193, 19);
             this.labelWarningText.TabIndex = 8;
             this.labelWarningText.Text = "Please choose what quarter.";
+            this.labelWarningText.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.labelWarningText.Visible = false;
             // 
             // frmEnterGrades
@@ -794,9 +793,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPerformanceTask)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureWarning)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.confuse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.close)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureWarning)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

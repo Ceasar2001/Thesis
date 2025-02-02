@@ -72,9 +72,11 @@ namespace TeacherPortal
         {
             try
             {
-                // Use 'using' statement to ensure the connection is closed after use
+                // Use 'using' statement to ensure the connection is properly disposed of
                 using (SQLiteConnection conn = dbConnection.GetConnection)
                 {
+                    conn.Open();  // Explicitly open the connection
+
                     string query = "SELECT username FROM tbluser WHERE username = @username AND password = @password";
                     using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
                     {
@@ -93,6 +95,7 @@ namespace TeacherPortal
                 return null;
             }
         }
+
 
 
 

@@ -33,17 +33,6 @@
             this.tabControlSubjects = new System.Windows.Forms.TabControl();
             this.Grading = new System.Windows.Forms.TabPage();
             this.dataGridStudentWithGrades = new System.Windows.Forms.DataGridView();
-            this.Lrn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.section = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WrittenWork = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PerformanceTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QuaterlyAsses = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InitialGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quarter = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QuarterlyGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboSubject = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -53,6 +42,16 @@
             this.close = new System.Windows.Forms.PictureBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Lrn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.section = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.subject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quarter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WrittenWork = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PerformanceTask = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuaterlyAsses = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuarterlyGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEdit = new System.Windows.Forms.DataGridViewImageColumn();
             this.tabControlSubjects.SuspendLayout();
             this.Grading.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStudentWithGrades)).BeginInit();
@@ -105,11 +104,10 @@
             this.studentname,
             this.section,
             this.subject,
+            this.Quarter,
             this.WrittenWork,
             this.PerformanceTask,
             this.QuaterlyAsses,
-            this.InitialGrade,
-            this.Quarter,
             this.QuarterlyGrade,
             this.colEdit});
             this.dataGridStudentWithGrades.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -131,85 +129,6 @@
             this.dataGridStudentWithGrades.Size = new System.Drawing.Size(1099, 591);
             this.dataGridStudentWithGrades.TabIndex = 1;
             this.dataGridStudentWithGrades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridStudentWithGrades_CellContentClick);
-            // 
-            // Lrn
-            // 
-            this.Lrn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Lrn.HeaderText = "Lrn";
-            this.Lrn.Name = "Lrn";
-            this.Lrn.Width = 52;
-            // 
-            // studentname
-            // 
-            this.studentname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.studentname.HeaderText = "Student Name";
-            this.studentname.Name = "studentname";
-            this.studentname.Width = 127;
-            // 
-            // section
-            // 
-            this.section.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.section.HeaderText = "Section";
-            this.section.Name = "section";
-            this.section.Visible = false;
-            this.section.Width = 83;
-            // 
-            // subject
-            // 
-            this.subject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.subject.HeaderText = "Subject";
-            this.subject.Name = "subject";
-            this.subject.Visible = false;
-            // 
-            // WrittenWork
-            // 
-            this.WrittenWork.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.WrittenWork.HeaderText = "Written Works";
-            this.WrittenWork.Name = "WrittenWork";
-            this.WrittenWork.Width = 126;
-            // 
-            // PerformanceTask
-            // 
-            this.PerformanceTask.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.PerformanceTask.HeaderText = "Performance Task";
-            this.PerformanceTask.Name = "PerformanceTask";
-            this.PerformanceTask.Width = 149;
-            // 
-            // QuaterlyAsses
-            // 
-            this.QuaterlyAsses.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.QuaterlyAsses.HeaderText = "Quarterly Assessment";
-            this.QuaterlyAsses.Name = "QuaterlyAsses";
-            this.QuaterlyAsses.Width = 173;
-            // 
-            // InitialGrade
-            // 
-            this.InitialGrade.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.InitialGrade.HeaderText = "Initial Grade";
-            this.InitialGrade.Name = "InitialGrade";
-            this.InitialGrade.Width = 113;
-            // 
-            // Quarter
-            // 
-            this.Quarter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Quarter.HeaderText = "Quarter";
-            this.Quarter.Name = "Quarter";
-            this.Quarter.Width = 82;
-            // 
-            // QuarterlyGrade
-            // 
-            this.QuarterlyGrade.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.QuarterlyGrade.HeaderText = "Quarterly Grade";
-            this.QuarterlyGrade.Name = "QuarterlyGrade";
-            // 
-            // colEdit
-            // 
-            this.colEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colEdit.HeaderText = "";
-            this.colEdit.Image = global::TeacherPortal.Properties.Resources.editing;
-            this.colEdit.Name = "colEdit";
-            this.colEdit.ToolTipText = "Close Academic Year";
-            this.colEdit.Width = 5;
             // 
             // panel1
             // 
@@ -304,6 +223,76 @@
             this.dataGridViewImageColumn2.Image = global::TeacherPortal.Properties.Resources.delete1;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             // 
+            // Lrn
+            // 
+            this.Lrn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Lrn.HeaderText = "Lrn";
+            this.Lrn.Name = "Lrn";
+            this.Lrn.Width = 52;
+            // 
+            // studentname
+            // 
+            this.studentname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.studentname.HeaderText = "Student Name";
+            this.studentname.Name = "studentname";
+            // 
+            // section
+            // 
+            this.section.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.section.HeaderText = "Section";
+            this.section.Name = "section";
+            this.section.Visible = false;
+            // 
+            // subject
+            // 
+            this.subject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.subject.HeaderText = "Subject";
+            this.subject.Name = "subject";
+            this.subject.Visible = false;
+            // 
+            // Quarter
+            // 
+            this.Quarter.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Quarter.HeaderText = "Quarter";
+            this.Quarter.Name = "Quarter";
+            // 
+            // WrittenWork
+            // 
+            this.WrittenWork.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.WrittenWork.HeaderText = "Written Works";
+            this.WrittenWork.Name = "WrittenWork";
+            this.WrittenWork.Width = 126;
+            // 
+            // PerformanceTask
+            // 
+            this.PerformanceTask.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.PerformanceTask.HeaderText = "Performance Task";
+            this.PerformanceTask.Name = "PerformanceTask";
+            this.PerformanceTask.Width = 149;
+            // 
+            // QuaterlyAsses
+            // 
+            this.QuaterlyAsses.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.QuaterlyAsses.HeaderText = "Quarterly Assessment";
+            this.QuaterlyAsses.Name = "QuaterlyAsses";
+            this.QuaterlyAsses.Width = 173;
+            // 
+            // QuarterlyGrade
+            // 
+            this.QuarterlyGrade.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.QuarterlyGrade.HeaderText = "Quarterly Grade";
+            this.QuarterlyGrade.Name = "QuarterlyGrade";
+            this.QuarterlyGrade.Width = 137;
+            // 
+            // colEdit
+            // 
+            this.colEdit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colEdit.HeaderText = "";
+            this.colEdit.Image = global::TeacherPortal.Properties.Resources.editing;
+            this.colEdit.Name = "colEdit";
+            this.colEdit.ToolTipText = "Close Academic Year";
+            this.colEdit.Width = 5;
+            // 
             // frmGrading
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
@@ -345,11 +334,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn studentname;
         private System.Windows.Forms.DataGridViewTextBoxColumn section;
         private System.Windows.Forms.DataGridViewTextBoxColumn subject;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quarter;
         private System.Windows.Forms.DataGridViewTextBoxColumn WrittenWork;
         private System.Windows.Forms.DataGridViewTextBoxColumn PerformanceTask;
         private System.Windows.Forms.DataGridViewTextBoxColumn QuaterlyAsses;
-        private System.Windows.Forms.DataGridViewTextBoxColumn InitialGrade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quarter;
         private System.Windows.Forms.DataGridViewTextBoxColumn QuarterlyGrade;
         private System.Windows.Forms.DataGridViewImageColumn colEdit;
     }

@@ -37,72 +37,6 @@ namespace TeacherPortal
             LoadStudentsWithGrades(selectedSection, selectedSubject);
         }
 
-        //public void LoadStudentsWithGrades(string section, string subject)
-        //{
-        //    try
-        //    {
-        //        SQLiteDataReader dr;
-        //        dataGridStudentWithGrades.Rows.Clear(); // Clear previous rows
-
-        //        using (SQLiteConnection cn = dbConnection.GetConnection)
-        //        {
-        //            using (SQLiteCommand cm = new SQLiteCommand(@"
-        //                SELECT DISTINCT 
-        //                    e.lrn, 
-        //                    s.fname || ' ' || s.lname || ' ' || s.mname AS student_name,
-        //                    COALESCE(g.subject, @subject) AS subject, 
-        //                    COALESCE(g.writtenScore, 0) AS writtenScore, 
-        //                    COALESCE(g.performanceScore, 0) AS performanceScore, 
-        //                    COALESCE(g.quarterlyScore, 0) AS quarterlyScore, 
-        //                    COALESCE(g.totalGrade, 0) AS InitialGrade,
-        //                    COALESCE(g.quarter, 0) AS quarter,
-        //                    COALESCE(g.totalGrade, 0) AS QuarterlyGrade,
-        //                    CASE 
-        //                        WHEN g.totalGrade >= 75 THEN 'Passed'
-        //                        ELSE 'Failed'
-        //                    END AS status
-        //                FROM tblenrollment e
-        //                JOIN tblstudent s ON e.lrn = s.lrn
-        //                JOIN tblsection sec ON e.sectionid = sec.id
-        //                JOIN tblEnrollmentSubjects es ON es.lrn = e.lrn
-        //                LEFT JOIN vwStudentGradess g ON g.lrn = e.lrn AND g.subject = @subject
-        //                WHERE sec.section = @section", cn))
-        //            {
-        //                cm.Parameters.AddWithValue("@section", section);
-        //                cm.Parameters.AddWithValue("@subject", subject);
-
-        //                cn.Open();
-        //                dr = cm.ExecuteReader();
-
-        //                while (dr.Read())
-        //                {
-        //                    dataGridStudentWithGrades.Rows.Add(
-        //                        dr["lrn"],
-        //                        dr["student_name"],
-        //                        dr["subject"],
-        //                        dr["writtenScore"],
-        //                        dr["performanceScore"],
-        //                        dr["quarterlyScore"],
-        //                        dr["InitialGrade"],
-        //                        dr["quarter"],
-        //                        dr["QuarterlyGrade"],
-        //                        dr["status"]
-        //                    );
-        //                }
-
-        //                dr.Close();
-        //                cn.Close();
-        //                dataGridStudentWithGrades.ClearSelection(); // Optional: Clear selection after loading
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show($"Error loading student grades: {ex.Message}", DBConnection._title, MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
-
         public void LoadStudentsWithGrades(string section, string subject)
         {
             try
@@ -112,9 +46,9 @@ namespace TeacherPortal
 
                 using (SQLiteConnection cn = dbConnection.GetConnection)
                 {
-                    // Step 1: Fetch the open academic year from tblacadyear
                     string currentAcademicYear = string.Empty;
                     string ayQuery = "SELECT aycode FROM tblacadyear WHERE status = 'Open' LIMIT 1";
+
                     using (SQLiteCommand ayCmd = new SQLiteCommand(ayQuery, cn))
                     {
                         cn.Open();
@@ -128,7 +62,6 @@ namespace TeacherPortal
                             MessageBox.Show("No open academic year found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
-                        cn.Close();
                     }
 
                     if (string.IsNullOrEmpty(currentAcademicYear))
@@ -137,52 +70,57 @@ namespace TeacherPortal
                         return;
                     }
 
-                    // Step 2: Fetch students for the selected section, subject, and current academic year
-                    using (SQLiteCommand cm = new SQLiteCommand(@"
-                SELECT DISTINCT 
+                    string query = @"
+                SELECT DISTINCT
                     e.lrn, 
                     s.fname || ' ' || s.lname || ' ' || s.mname AS student_name,
-                    COALESCE(g.subject, @subject) AS subject, 
-                    COALESCE(g.writtenScore, 0) AS writtenScore, 
-                    COALESCE(g.performanceScore, 0) AS performanceScore, 
-                    COALESCE(g.quarterlyScore, 0) AS quarterlyScore, 
-                    COALESCE(g.totalGrade, 0) AS InitialGrade,
-                    COALESCE(g.quarter, 0) AS quarter,
-                    COALESCE(g.totalGrade, 0) AS QuarterlyGrade,
-                    CASE 
-                        WHEN g.totalGrade >= 75 THEN 'Passed'
-                        ELSE 'Failed'
-                    END AS status
-                FROM tblenrollment e
-                JOIN tblstudent s ON e.lrn = s.lrn
-                JOIN tblsection sec ON e.sectionid = sec.id
-                JOIN tblEnrollmentSubjects es ON es.lrn = e.lrn
-                LEFT JOIN vwStudentGradess g ON g.lrn = e.lrn AND g.subject = @subject
-                WHERE sec.section = @section
-                AND e.aycode = @academicYear", cn))
+                    COALESCE(g.subject, @subject) AS subject,
+                    COALESCE(g.quarter, '') AS Quarter,
+                    COALESCE(g.writtenScore, 0) AS WrittenWork, 
+                    COALESCE(g.performanceScore, 0) AS PerformanceTask, 
+                    COALESCE(g.quarterlyScore, 0) AS QuarterlyAsses, 
+                    COALESCE(g.totalGrade, 0) AS QuarterlyGrade
+                    
+                    FROM tblenrollment e
+                    JOIN tblstudent s ON e.lrn = s.lrn
+                    JOIN tblsection sec ON e.sectionid = sec.id
+                    JOIN tblEnrollmentSubjects es ON es.lrn = e.lrn
+                    LEFT JOIN tblGrade g ON g.lrn = e.lrn AND g.subject = @subject
+                    WHERE sec.section = @section
+                    AND e.aycode = @academicYear;";
+
+                    using (SQLiteCommand cm = new SQLiteCommand(query, cn))
                     {
                         cm.Parameters.AddWithValue("@section", section);
                         cm.Parameters.AddWithValue("@subject", subject);
                         cm.Parameters.AddWithValue("@academicYear", currentAcademicYear);
 
-                        cn.Open();
                         dr = cm.ExecuteReader();
 
                         if (dr.HasRows)
                         {
                             while (dr.Read())
                             {
+                                // Check if data is not null
+                                object lrn = dr["lrn"] ?? DBNull.Value;
+                                object studentName = dr["student_name"] ?? DBNull.Value;
+                                object subjectName = dr["subject"] ?? DBNull.Value;
+                                object quarter = dr["Quarter"] ?? DBNull.Value;
+                                object writtenWork = dr["WrittenWork"] ?? 0;
+                                object performanceTask = dr["PerformanceTask"] ?? 0;
+                                object quarterlyAsses = dr["QuarterlyAsses"] ?? 0;
+                                object quarterlyGrade = dr["QuarterlyGrade"] ?? 0;
+
                                 dataGridStudentWithGrades.Rows.Add(
-                                    dr["lrn"],
-                                    dr["student_name"],
-                                    dr["subject"],
-                                    dr["writtenScore"],
-                                    dr["performanceScore"],
-                                    dr["quarterlyScore"],
-                                    dr["InitialGrade"],
-                                    dr["quarter"],
-                                    dr["QuarterlyGrade"],
-                                    dr["status"]
+                                    lrn,
+                                    studentName,
+                                    section,
+                                    subjectName,
+                                    quarter,
+                                    writtenWork,
+                                    performanceTask,
+                                    quarterlyAsses,
+                                    quarterlyGrade
                                 );
                             }
                         }
@@ -192,8 +130,6 @@ namespace TeacherPortal
                         }
 
                         dr.Close();
-                        cn.Close();
-                        dataGridStudentWithGrades.ClearSelection(); // Optional: Clear selection after loading
                     }
                 }
             }
@@ -201,7 +137,14 @@ namespace TeacherPortal
             {
                 MessageBox.Show($"Error loading student grades: {ex.Message}", DBConnection._title, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally
+            {
+                dataGridStudentWithGrades.ClearSelection(); // Optional: Clear selection after loading
+            }
         }
+
+
+
 
 
 
