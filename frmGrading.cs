@@ -26,6 +26,7 @@ namespace TeacherPortal
         private void btnshowstudent_Click(object sender, EventArgs e)
         {
             string selectedSection = comboSection.SelectedItem?.ToString();
+            //string selectedSection = comboBoxSection.SelectedItem?.ToString();
             string selectedSubject = comboSubject.SelectedItem?.ToString();
 
             if (string.IsNullOrEmpty(selectedSection) || string.IsNullOrEmpty(selectedSubject))
@@ -163,6 +164,7 @@ namespace TeacherPortal
                             while (dr.Read())
                             {
                                 comboSection.Items.Add(dr["section"].ToString());
+                                comboBoxSection.Items.Add(dr["section"].ToString());
                             }
                         }
                         cn.Close();
@@ -267,6 +269,258 @@ namespace TeacherPortal
                 MessageBox.Show($"Error loading subjects: {ex.Message}", DBConnection._title, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+        //Summary
+
+        private void comboBoxSection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedSection = comboBoxSection.SelectedItem?.ToString();
+            if (!string.IsNullOrEmpty(selectedSection))
+            {
+                // Check if the academic year is open
+                using (SQLiteConnection cn = dbConnection.GetConnection)
+                {
+                    string query = "SELECT status FROM tblAcadYear WHERE status = 'Open' LIMIT 1";
+                    using (SQLiteCommand cm = new SQLiteCommand(query, cn))
+                    {
+                        cn.Open();
+                        object result = cm.ExecuteScalar();
+                        cn.Close();
+
+                        if (result != null)
+                        {
+                            UpdateDataGridViewHeaders(selectedSection);
+                            LoadStudentGrades(selectedSection);
+                        }
+                        else
+                        {
+                            MessageBox.Show("The academic year is closed. Please try again later.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void LoadStudentGrades(string section)
+        {
+            try
+            {
+                dataGridViewGradeSummary.Rows.Clear();
+
+                // Get the current academic year
+                string currentAyCode = GetCurrentAcademicYear();
+
+                // Check if any students are enrolled in the current academic year
+                if (string.IsNullOrEmpty(currentAyCode) || !IsAnyStudentEnrolledInCurrentAY(currentAyCode, section))
+                {
+                    MessageBox.Show("No students found for the current academic year.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return; // Exit early as no students are available
+                }
+
+                using (SQLiteConnection cn = dbConnection.GetConnection)
+                {
+                    string query = @"
+            SELECT g.lrn, 
+                   s.lname || ', ' || s.fname || ' ' || s.mname AS student_name,
+                   g.subject,
+                   g.totalGrade
+            FROM tblGrade g
+            JOIN tblStudent s ON g.lrn = s.lrn
+            WHERE g.section = @section
+            ORDER BY g.lrn, g.subject";
+
+                    using (SQLiteCommand cm = new SQLiteCommand(query, cn))
+                    {
+                        cm.Parameters.AddWithValue("@section", section);
+                        cn.Open();
+
+                        using (SQLiteDataReader dr = cm.ExecuteReader())
+                        {
+                            Dictionary<string, Dictionary<string, double>> studentGrades = new Dictionary<string, Dictionary<string, double>>();
+                            Dictionary<string, string> studentNames = new Dictionary<string, string>();
+
+                            // Process student grades dynamically
+                            while (dr.Read())
+                            {
+                                string lrn = dr["lrn"].ToString();
+                                string studentName = dr["student_name"].ToString();
+                                string subject = dr["subject"].ToString();
+                                double grade = Convert.ToDouble(dr["totalGrade"]);
+
+                                if (!studentGrades.ContainsKey(lrn))
+                                {
+                                    studentGrades[lrn] = new Dictionary<string, double>();
+                                    studentNames[lrn] = studentName;
+                                }
+
+                                studentGrades[lrn][subject] = grade;
+                            }
+
+                            cn.Close();
+
+                            // Populate DataGridView
+                            foreach (var student in studentGrades)
+                            {
+                                string lrn = student.Key;
+                                string studentName = studentNames[lrn];
+
+                                DataGridViewRow row = new DataGridViewRow();
+                                row.CreateCells(dataGridViewGradeSummary);
+
+                                row.Cells[0].Value = lrn;
+                                row.Cells[1].Value = studentName;
+
+                                double totalGrade = 0;
+                                int subjectCount = 0;
+
+                                for (int i = 2; i < dataGridViewGradeSummary.Columns.Count - 1; i++)
+                                {
+                                    string subjectName = dataGridViewGradeSummary.Columns[i].HeaderText;
+                                    if (student.Value.ContainsKey(subjectName))
+                                    {
+                                        double grade = student.Value[subjectName];
+                                        row.Cells[i].Value = grade;
+                                        totalGrade += grade;
+                                        subjectCount++;
+                                    }
+                                }
+
+                                // Calculate the average
+                                double average = (subjectCount > 0) ? (totalGrade / subjectCount) : 0;
+                                row.Cells[dataGridViewGradeSummary.Columns.Count - 1].Value = Math.Round(average, 2);
+
+                                dataGridViewGradeSummary.Rows.Add(row);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading student grades: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private string GetCurrentAcademicYear()
+        {
+            string currentAyCode = string.Empty;
+
+            try
+            {
+                using (SQLiteConnection cn = dbConnection.GetConnection)
+                {
+                    string query = "SELECT aycode FROM tblacadyear WHERE status = 'Open' LIMIT 1";
+                    using (SQLiteCommand cm = new SQLiteCommand(query, cn))
+                    {
+                        cn.Open();
+                        currentAyCode = cm.ExecuteScalar()?.ToString();
+                        cn.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error fetching current academic year: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return currentAyCode;
+        }
+
+        private bool IsAnyStudentEnrolledInCurrentAY(string ayCode, string section)
+        {
+            bool isStudentEnrolled = false;
+
+            try
+            {
+                using (SQLiteConnection cn = dbConnection.GetConnection)
+                {
+                    string query = @"
+            SELECT COUNT(*) 
+            FROM tblenrollment e
+            JOIN tblsection s ON e.sectionid = s.id
+            WHERE e.aycode = @ayCode AND s.section = @section AND e.status = 'Enrolled'";
+
+                    using (SQLiteCommand cm = new SQLiteCommand(query, cn))
+                    {
+                        cm.Parameters.AddWithValue("@ayCode", ayCode);
+                        cm.Parameters.AddWithValue("@section", section);
+                        cn.Open();
+                        isStudentEnrolled = Convert.ToInt32(cm.ExecuteScalar()) > 0;
+                        cn.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error checking student enrollment: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return isStudentEnrolled;
+        }
+
+
+
+
+
+        private List<string> GetSubjectsForSection(string section)
+        {
+            List<string> subjects = new List<string>();
+
+            try
+            {
+                using (SQLiteConnection cn = dbConnection.GetConnection)
+                {
+                    string query = @"
+                SELECT DISTINCT subject 
+                FROM tblGrade 
+                WHERE section = @section";
+
+                    using (SQLiteCommand cm = new SQLiteCommand(query, cn))
+                    {
+                        cm.Parameters.AddWithValue("@section", section);
+                        cn.Open();
+
+                        using (SQLiteDataReader dr = cm.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                subjects.Add(dr["subject"].ToString());
+                            }
+                        }
+
+                        cn.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading subjects: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return subjects;
+        }
+
+        private void UpdateDataGridViewHeaders(string section)
+        {
+            
+            List<string> subjects = GetSubjectsForSection(section);
+
+            dataGridViewGradeSummary.Columns.Clear();
+
+            dataGridViewGradeSummary.Columns.Add("lrn", "Lrn");
+            dataGridViewGradeSummary.Columns.Add("studentname", "Student Name");
+
+            foreach (string subject in subjects)
+            {
+                dataGridViewGradeSummary.Columns.Add(subject, subject);
+            }
+
+            dataGridViewGradeSummary.Columns.Add("average", "Average");
+        }
+
+
+
 
     }
 }

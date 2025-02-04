@@ -383,6 +383,16 @@ namespace TeacherPortal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap select {
+            get {
+                object obj = ResourceManager.GetObject("select", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap show__1_ {
             get {
                 object obj = ResourceManager.GetObject("show (1)", resourceCulture);
@@ -416,6 +426,16 @@ namespace TeacherPortal.Properties {
         internal static System.Drawing.Bitmap students {
             get {
                 object obj = ResourceManager.GetObject("students", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap unselect {
+            get {
+                object obj = ResourceManager.GetObject("unselect", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -30,7 +30,9 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.tabControlSubjects = new System.Windows.Forms.TabControl();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.summary = new System.Windows.Forms.TabControl();
             this.Grading = new System.Windows.Forms.TabPage();
             this.dataGridStudentWithGrades = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -42,6 +44,16 @@
             this.close = new System.Windows.Forms.PictureBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridViewGradeSummary = new System.Windows.Forms.DataGridView();
+            this.comboBoxSection = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.slrn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentnamee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.average = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Lrn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.section = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,23 +64,27 @@
             this.QuaterlyAsses = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuarterlyGrade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEdit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.tabControlSubjects.SuspendLayout();
+            this.summary.SuspendLayout();
             this.Grading.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStudentWithGrades)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.close)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGradeSummary)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControlSubjects
+            // summary
             // 
-            this.tabControlSubjects.Controls.Add(this.Grading);
-            this.tabControlSubjects.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlSubjects.ItemSize = new System.Drawing.Size(60, 25);
-            this.tabControlSubjects.Location = new System.Drawing.Point(0, 0);
-            this.tabControlSubjects.Name = "tabControlSubjects";
-            this.tabControlSubjects.SelectedIndex = 0;
-            this.tabControlSubjects.Size = new System.Drawing.Size(1113, 674);
-            this.tabControlSubjects.TabIndex = 3;
+            this.summary.Controls.Add(this.Grading);
+            this.summary.Controls.Add(this.tabPage1);
+            this.summary.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.summary.ItemSize = new System.Drawing.Size(60, 25);
+            this.summary.Location = new System.Drawing.Point(0, 0);
+            this.summary.Name = "summary";
+            this.summary.SelectedIndex = 0;
+            this.summary.Size = new System.Drawing.Size(1113, 674);
+            this.summary.TabIndex = 3;
             // 
             // Grading
             // 
@@ -223,6 +239,129 @@
             this.dataGridViewImageColumn2.Image = global::TeacherPortal.Properties.Resources.delete1;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.dataGridViewGradeSummary);
+            this.tabPage1.Controls.Add(this.panel2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(1105, 641);
+            this.tabPage1.TabIndex = 1;
+            this.tabPage1.Text = "Summary";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.comboBoxSection);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1105, 44);
+            this.panel2.TabIndex = 0;
+            // 
+            // dataGridViewGradeSummary
+            // 
+            this.dataGridViewGradeSummary.AllowUserToAddRows = false;
+            this.dataGridViewGradeSummary.BackgroundColor = System.Drawing.Color.Snow;
+            this.dataGridViewGradeSummary.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridViewGradeSummary.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGridViewGradeSummary.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGradeSummary.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewGradeSummary.ColumnHeadersHeight = 30;
+            this.dataGridViewGradeSummary.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.slrn,
+            this.studentnamee,
+            this.average,
+            this.dataGridViewImageColumn3});
+            this.dataGridViewGradeSummary.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewGradeSummary.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewGradeSummary.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewGradeSummary.EnableHeadersVisualStyles = false;
+            this.dataGridViewGradeSummary.GridColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewGradeSummary.Location = new System.Drawing.Point(0, 44);
+            this.dataGridViewGradeSummary.Name = "dataGridViewGradeSummary";
+            this.dataGridViewGradeSummary.RowHeadersVisible = false;
+            this.dataGridViewGradeSummary.RowTemplate.Height = 27;
+            this.dataGridViewGradeSummary.Size = new System.Drawing.Size(1105, 597);
+            this.dataGridViewGradeSummary.TabIndex = 3;
+            // 
+            // comboBoxSection
+            // 
+            this.comboBoxSection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxSection.FormattingEnabled = true;
+            this.comboBoxSection.Location = new System.Drawing.Point(956, 8);
+            this.comboBoxSection.Name = "comboBoxSection";
+            this.comboBoxSection.Size = new System.Drawing.Size(141, 27);
+            this.comboBoxSection.TabIndex = 8;
+            this.comboBoxSection.SelectedIndexChanged += new System.EventHandler(this.comboBoxSection_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(892, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 19);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Section";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(19, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(218, 19);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Summary of Quarterly Grades";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // slrn
+            // 
+            this.slrn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.slrn.HeaderText = "Lrn";
+            this.slrn.Name = "slrn";
+            this.slrn.Width = 52;
+            // 
+            // studentnamee
+            // 
+            this.studentnamee.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.studentnamee.HeaderText = "Student Name";
+            this.studentnamee.Name = "studentnamee";
+            // 
+            // average
+            // 
+            this.average.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.average.HeaderText = "Average";
+            this.average.Name = "average";
+            this.average.Width = 87;
+            // 
+            // dataGridViewImageColumn3
+            // 
+            this.dataGridViewImageColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewImageColumn3.HeaderText = "";
+            this.dataGridViewImageColumn3.Image = global::TeacherPortal.Properties.Resources.editing;
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            this.dataGridViewImageColumn3.ToolTipText = "Close Academic Year";
+            this.dataGridViewImageColumn3.Visible = false;
+            this.dataGridViewImageColumn3.Width = 5;
+            // 
             // Lrn
             // 
             this.Lrn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -291,6 +430,7 @@
             this.colEdit.Image = global::TeacherPortal.Properties.Resources.editing;
             this.colEdit.Name = "colEdit";
             this.colEdit.ToolTipText = "Close Academic Year";
+            this.colEdit.Visible = false;
             this.colEdit.Width = 5;
             // 
             // frmGrading
@@ -299,26 +439,30 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1113, 674);
             this.ControlBox = false;
-            this.Controls.Add(this.tabControlSubjects);
+            this.Controls.Add(this.summary);
             this.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmGrading";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.tabControlSubjects.ResumeLayout(false);
+            this.summary.ResumeLayout(false);
             this.Grading.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStudentWithGrades)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.close)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGradeSummary)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControlSubjects;
+        private System.Windows.Forms.TabControl summary;
         private System.Windows.Forms.TabPage Grading;
         private System.Windows.Forms.DataGridView dataGridStudentWithGrades;
         private System.Windows.Forms.Panel panel1;
@@ -330,6 +474,16 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboSection;
         private System.Windows.Forms.Button btnshowstudent;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.DataGridView dataGridViewGradeSummary;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ComboBox comboBoxSection;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn slrn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn studentnamee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn average;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lrn;
         private System.Windows.Forms.DataGridViewTextBoxColumn studentname;
         private System.Windows.Forms.DataGridViewTextBoxColumn section;
