@@ -7,22 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SQLite;
 
 namespace TeacherPortal
 {
-    public partial class frmProfile : Form
+    public partial class studentInfo : Form
     {
-        private DBConnection dbConnection;
-        public frmProfile()
+        public studentInfo()
         {
             InitializeComponent();
-            dbConnection = new DBConnection();
-        }
-
-        private void close_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
         }
     }
 }

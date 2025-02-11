@@ -207,6 +207,12 @@
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="studentInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="studentInfo.Designer.cs">
+      <DependentUpon>studentInfo.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ForgetPassword.resx">
       <DependentUpon>ForgetPassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -273,6 +279,9 @@
     </Compile>
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="studentInfo.resx">
+      <DependentUpon>studentInfo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
