@@ -112,5 +112,21 @@ namespace TeacherPortal
             report.BringToFront();
             report.Show();
         }
+
+        private async void buttonsms_Click(object sender, EventArgs e)
+        {
+            buttonsms.Enabled = false; // Disable button to prevent multiple clicks
+
+            await Task.Run(() =>
+            {
+                SmsNotification smsNotification = new SmsNotification();
+                smsNotification.SendStudentNotifications();
+            });
+
+            buttonsms.Enabled = true; // Re-enable button after sending
+
+            MessageBox.Show("SMS notifications sent successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
     }
 }

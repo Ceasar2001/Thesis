@@ -49,6 +49,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtboxUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.textBoxSchoolname = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -58,6 +60,7 @@
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -78,6 +81,7 @@
             this.panel2.Controls.Add(this.login);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.register);
+            this.panel2.Controls.Add(this.groupBox8);
             this.panel2.Controls.Add(this.groupBox7);
             this.panel2.Controls.Add(this.groupBox6);
             this.panel2.Controls.Add(this.groupBox5);
@@ -87,9 +91,9 @@
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(258, 25);
+            this.panel2.Location = new System.Drawing.Point(266, 28);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(606, 641);
+            this.panel2.Size = new System.Drawing.Size(618, 641);
             this.panel2.TabIndex = 18;
             // 
             // label3
@@ -109,7 +113,7 @@
             this.login.Cursor = System.Windows.Forms.Cursors.Hand;
             this.login.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.login.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.login.Location = new System.Drawing.Point(328, 570);
+            this.login.Location = new System.Drawing.Point(368, 584);
             this.login.Name = "login";
             this.login.Size = new System.Drawing.Size(48, 19);
             this.login.TabIndex = 16;
@@ -119,7 +123,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(144, 569);
+            this.label2.Location = new System.Drawing.Point(184, 583);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(188, 18);
             this.label2.TabIndex = 15;
@@ -134,7 +138,7 @@
             this.register.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.register.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.register.ForeColor = System.Drawing.Color.Snow;
-            this.register.Location = new System.Drawing.Point(66, 507);
+            this.register.Location = new System.Drawing.Point(71, 533);
             this.register.Name = "register";
             this.register.Size = new System.Drawing.Size(476, 35);
             this.register.TabIndex = 4;
@@ -279,7 +283,7 @@
             this.txtboxUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtboxUsername.Location = new System.Drawing.Point(5, 20);
             this.txtboxUsername.Name = "txtboxUsername";
-            this.txtboxUsername.Size = new System.Drawing.Size(432, 17);
+            this.txtboxUsername.Size = new System.Drawing.Size(465, 17);
             this.txtboxUsername.TabIndex = 10;
             // 
             // label1
@@ -292,6 +296,26 @@
             this.label1.Size = new System.Drawing.Size(178, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "Register New Account";
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.textBoxSchoolname);
+            this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox8.Location = new System.Drawing.Point(66, 470);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(476, 44);
+            this.groupBox8.TabIndex = 14;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "School Name";
+            // 
+            // textBoxSchoolname
+            // 
+            this.textBoxSchoolname.BackColor = System.Drawing.Color.Snow;
+            this.textBoxSchoolname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxSchoolname.Location = new System.Drawing.Point(5, 20);
+            this.textBoxSchoolname.Name = "textBoxSchoolname";
+            this.textBoxSchoolname.Size = new System.Drawing.Size(432, 17);
+            this.textBoxSchoolname.TabIndex = 10;
             // 
             // RegisterForm
             // 
@@ -321,6 +345,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -348,5 +374,7 @@
         private System.Windows.Forms.TextBox txtboxUsername;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.TextBox textBoxSchoolname;
     }
 }

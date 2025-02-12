@@ -69,31 +69,29 @@ namespace TeacherPortal
                     conn.Open();
 
                     string query = @"
-               SELECT 
-                    s.lrn, 
-                    s.fullname AS studentname, 
-                    u.contact AS contact, 
-                    s.teacher_name AS Teacher, 
-                    s.section_enrolled AS section, 
-                    s.subjects AS Subject, 
-                    s.absent_count AS AbsentCount, 
-                    s.present_count AS PresentCount, 
-                    g.quarter AS Quarter, 
-                    g.totalGrade AS QuarterlyGrade
-                FROM vwStudentReport1 s
-                LEFT JOIN tblGrade g 
-                    ON s.lrn = g.lrn 
-                    AND g.quarter = (SELECT MAX(quarter) FROM tblGrade WHERE lrn = s.lrn)
-                LEFT JOIN tbluser u 
-                    ON u.username = s.teacher_name
-                INNER JOIN tblenrollment e 
-                    ON e.lrn = s.lrn
-                INNER JOIN tblacadyear ay 
-                    ON e.aycode = ay.aycode
-                WHERE s.section_enrolled = @section
-                AND ay.status = 'Open'  -- Only include students from the currently open academic year
-                GROUP BY s.lrn
-                ORDER BY s.fullname";
+                        SELECT 
+                            s.lrn, 
+                            s.fullname AS studentname, 
+                            s.student_contact AS contact, -- Fix: Use correct student contact
+                            s.teacher_name AS Teacher, 
+                            s.section_enrolled AS section, 
+                            s.subjects AS Subject, 
+                            s.absent_count AS AbsentCount, 
+                            s.present_count AS PresentCount, 
+                            g.quarter AS Quarter, 
+                            g.totalGrade AS QuarterlyGrade
+                        FROM vwStudentReport s
+                        LEFT JOIN tblGrade g 
+                            ON s.lrn = g.lrn 
+                            AND g.quarter = (SELECT MAX(quarter) FROM tblGrade WHERE lrn = s.lrn)
+                        INNER JOIN tblenrollment e 
+                            ON e.lrn = s.lrn
+                        INNER JOIN tblacadyear ay 
+                            ON e.aycode = ay.aycode
+                        WHERE s.section_enrolled = @section
+                        AND ay.status = 'Open'
+                        GROUP BY s.lrn
+                        ORDER BY s.fullname";
 
                     using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
                     {
@@ -111,7 +109,7 @@ namespace TeacherPortal
 
                                 row.Cells["Lrn"].Value = reader["lrn"].ToString();
                                 row.Cells["studentname"].Value = reader["studentname"].ToString();
-                                row.Cells["contact"].Value = reader["contact"].ToString();
+                                row.Cells["contact"].Value = reader["contact"].ToString(); // Fix: Ensure contact is displayed
                                 row.Cells["Teacher"].Value = reader["Teacher"].ToString();
                                 row.Cells["section"].Value = reader["section"].ToString();
                                 row.Cells["AbsentCount"].Value = reader["AbsentCount"].ToString();
@@ -124,10 +122,13 @@ namespace TeacherPortal
                                 if (subjectCell != null)
                                 {
                                     subjectCell.Items.Clear();
-                                    string[] subjects = reader["Subject"].ToString().Split(',');
-                                    foreach (string subject in subjects)
+                                    if (!string.IsNullOrEmpty(reader["Subject"].ToString()))
                                     {
-                                        subjectCell.Items.Add(subject.Trim());
+                                        string[] subjects = reader["Subject"].ToString().Split(',');
+                                        foreach (string subject in subjects)
+                                        {
+                                            subjectCell.Items.Add(subject.Trim());
+                                        }
                                     }
                                 }
                             }
@@ -146,6 +147,7 @@ namespace TeacherPortal
                 MessageBox.Show("Error loading students: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void dataGridStudentWithGrades_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
@@ -175,7 +177,7 @@ namespace TeacherPortal
                 FROM tblGrade 
                 WHERE lrn = @lrn AND subject = @subject
                 ORDER BY quarter DESC 
-                LIMIT 1"; // Get latest quarter grade
+                LIMIT 1"; 
 
                     using (SQLiteCommand cmd = new SQLiteCommand(query, conn))
                     {

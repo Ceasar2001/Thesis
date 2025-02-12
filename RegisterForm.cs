@@ -24,11 +24,13 @@ namespace TeacherPortal
             string mname = textBoxMidName.Text.Trim();
             string contact = textBoxContact.Text.Trim();
             string email = textBoxEmail.Text.Trim();
+            string school_name = textBoxSchoolname.Text.Trim(); // New field
 
             // Validate inputs
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) ||
                 string.IsNullOrEmpty(lname) || string.IsNullOrEmpty(fname) ||
-                string.IsNullOrEmpty(contact) || string.IsNullOrEmpty(email))
+                string.IsNullOrEmpty(contact) || string.IsNullOrEmpty(email) ||
+                string.IsNullOrEmpty(school_name)) // Validation for school name
             {
                 MessageBox.Show("Please fill in all the fields.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -38,6 +40,8 @@ namespace TeacherPortal
             {
                 using (SQLiteConnection cn = dbConnection.GetConnection)
                 {
+                    cn.Open(); // 🔹 Explicitly open the connection
+
                     // Check if the username already exists
                     using (SQLiteCommand checkCmd = new SQLiteCommand("SELECT COUNT(*) FROM tbluser WHERE username = @username", cn))
                     {
@@ -52,7 +56,9 @@ namespace TeacherPortal
                     }
 
                     // Insert new user into tbluser
-                    using (SQLiteCommand cmd = new SQLiteCommand("INSERT INTO tbluser (username, password, lname, fname, mname, contact, email) VALUES (@username, @password, @lname, @fname, @mname, @contact, @email)", cn))
+                    using (SQLiteCommand cmd = new SQLiteCommand(@"
+                        INSERT INTO tbluser (username, password, lname, fname, mname, contact, email, school_name) 
+                        VALUES (@username, @password, @lname, @fname, @mname, @contact, @email, @school_name)", cn))
                     {
                         cmd.Parameters.AddWithValue("@username", username);
                         cmd.Parameters.AddWithValue("@password", password);
@@ -61,6 +67,7 @@ namespace TeacherPortal
                         cmd.Parameters.AddWithValue("@mname", mname);
                         cmd.Parameters.AddWithValue("@contact", contact);
                         cmd.Parameters.AddWithValue("@email", email);
+                        cmd.Parameters.AddWithValue("@school_name", school_name); // Insert school name
 
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("User registered successfully! Redirecting to login.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -77,7 +84,6 @@ namespace TeacherPortal
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         private void login_Click(object sender, EventArgs e)
         {

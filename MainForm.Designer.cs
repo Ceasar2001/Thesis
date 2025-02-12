@@ -30,13 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.mainPanel = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.pictureBoxClose = new System.Windows.Forms.PictureBox();
-            this.pictureBoxMinimize = new System.Windows.Forms.PictureBox();
             this.profilebtn = new System.Windows.Forms.Button();
             this.btnAY = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -46,13 +39,21 @@
             this.btnAttendance = new System.Windows.Forms.Button();
             this.btnSection = new System.Windows.Forms.Button();
             this.btnStudent = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.useravatar = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBoxClose = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMinimize = new System.Windows.Forms.PictureBox();
+            this.mainPanel = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.buttonsms = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.useravatar)).BeginInit();
             this.panel2.SuspendLayout();
-            this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.useravatar)).BeginInit();
+            this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -74,70 +75,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 684);
             this.panel1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(148)))));
-            this.label1.Location = new System.Drawing.Point(26, 145);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 19);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Ceasar Ian I. Ecleo";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
-            this.panel2.Controls.Add(this.pictureBoxClose);
-            this.panel2.Controls.Add(this.pictureBoxMinimize);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(200, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1061, 32);
-            this.panel2.TabIndex = 1;
-            // 
-            // mainPanel
-            // 
-            this.mainPanel.Controls.Add(this.panel3);
-            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPanel.Location = new System.Drawing.Point(200, 32);
-            this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(1061, 652);
-            this.mainPanel.TabIndex = 2;
-            // 
-            // panel3
-            // 
-            this.panel3.Location = new System.Drawing.Point(206, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(607, 652);
-            this.panel3.TabIndex = 0;
-            // 
-            // pictureBoxClose
-            // 
-            this.pictureBoxClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxClose.Image = global::TeacherPortal.Properties.Resources.reject__1_;
-            this.pictureBoxClose.Location = new System.Drawing.Point(1023, 1);
-            this.pictureBoxClose.Name = "pictureBoxClose";
-            this.pictureBoxClose.Size = new System.Drawing.Size(34, 33);
-            this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBoxClose.TabIndex = 1;
-            this.pictureBoxClose.TabStop = false;
-            this.pictureBoxClose.Click += new System.EventHandler(this.pictureBoxClose_Click);
-            this.pictureBoxClose.MouseHover += new System.EventHandler(this.pictureBoxClose_MouseHover);
-            // 
-            // pictureBoxMinimize
-            // 
-            this.pictureBoxMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxMinimize.Image = global::TeacherPortal.Properties.Resources.minus__1_;
-            this.pictureBoxMinimize.Location = new System.Drawing.Point(988, 1);
-            this.pictureBoxMinimize.Name = "pictureBoxMinimize";
-            this.pictureBoxMinimize.Size = new System.Drawing.Size(34, 33);
-            this.pictureBoxMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBoxMinimize.TabIndex = 0;
-            this.pictureBoxMinimize.TabStop = false;
-            this.pictureBoxMinimize.Click += new System.EventHandler(this.pictureBoxMinimize_Click);
-            this.pictureBoxMinimize.MouseHover += new System.EventHandler(this.pictureBoxMinimize_MouseHover);
             // 
             // profilebtn
             // 
@@ -318,6 +255,17 @@
             this.btnStudent.UseVisualStyleBackColor = false;
             this.btnStudent.Click += new System.EventHandler(this.btnStudent_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(184)))), ((int)(((byte)(148)))));
+            this.label1.Location = new System.Drawing.Point(26, 145);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(134, 19);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Ceasar Ian I. Ecleo";
+            // 
             // useravatar
             // 
             this.useravatar.Image = global::TeacherPortal.Properties.Resources._4;
@@ -327,6 +275,72 @@
             this.useravatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.useravatar.TabIndex = 0;
             this.useravatar.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.panel2.Controls.Add(this.pictureBoxClose);
+            this.panel2.Controls.Add(this.pictureBoxMinimize);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(200, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1061, 32);
+            this.panel2.TabIndex = 1;
+            // 
+            // pictureBoxClose
+            // 
+            this.pictureBoxClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxClose.Image = global::TeacherPortal.Properties.Resources.reject__1_;
+            this.pictureBoxClose.Location = new System.Drawing.Point(1023, 1);
+            this.pictureBoxClose.Name = "pictureBoxClose";
+            this.pictureBoxClose.Size = new System.Drawing.Size(34, 33);
+            this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxClose.TabIndex = 1;
+            this.pictureBoxClose.TabStop = false;
+            this.pictureBoxClose.Click += new System.EventHandler(this.pictureBoxClose_Click);
+            this.pictureBoxClose.MouseHover += new System.EventHandler(this.pictureBoxClose_MouseHover);
+            // 
+            // pictureBoxMinimize
+            // 
+            this.pictureBoxMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxMinimize.Image = global::TeacherPortal.Properties.Resources.minus__1_;
+            this.pictureBoxMinimize.Location = new System.Drawing.Point(988, 1);
+            this.pictureBoxMinimize.Name = "pictureBoxMinimize";
+            this.pictureBoxMinimize.Size = new System.Drawing.Size(34, 33);
+            this.pictureBoxMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxMinimize.TabIndex = 0;
+            this.pictureBoxMinimize.TabStop = false;
+            this.pictureBoxMinimize.Click += new System.EventHandler(this.pictureBoxMinimize_Click);
+            this.pictureBoxMinimize.MouseHover += new System.EventHandler(this.pictureBoxMinimize_MouseHover);
+            // 
+            // mainPanel
+            // 
+            this.mainPanel.Controls.Add(this.buttonsms);
+            this.mainPanel.Controls.Add(this.panel3);
+            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainPanel.Location = new System.Drawing.Point(200, 32);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(1061, 652);
+            this.mainPanel.TabIndex = 2;
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(206, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(607, 652);
+            this.panel3.TabIndex = 0;
+            // 
+            // buttonsms
+            // 
+            this.buttonsms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(62)))), ((int)(((byte)(80)))));
+            this.buttonsms.ForeColor = System.Drawing.Color.Snow;
+            this.buttonsms.Location = new System.Drawing.Point(47, 450);
+            this.buttonsms.Name = "buttonsms";
+            this.buttonsms.Size = new System.Drawing.Size(117, 47);
+            this.buttonsms.TabIndex = 1;
+            this.buttonsms.Text = "Send SMS";
+            this.buttonsms.UseVisualStyleBackColor = false;
+            this.buttonsms.Click += new System.EventHandler(this.buttonsms_Click);
             // 
             // MainForm
             // 
@@ -343,11 +357,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.useravatar)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.mainPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMinimize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.useravatar)).EndInit();
+            this.mainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -372,5 +386,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnEnrollment;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button buttonsms;
     }
 }
