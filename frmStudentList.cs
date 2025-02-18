@@ -80,6 +80,7 @@ namespace TeacherPortal
                 frmStudent student = new frmStudent(this);
                 student.ButtonSave.Enabled = false;
                 student.txtLrn.Enabled = false;
+
                 student.txtLrn.Text = dataGridViewStudentList.Rows[e.RowIndex].Cells[0].Value.ToString();
                 student.txtLname.Text = dataGridViewStudentList.Rows[e.RowIndex].Cells[1].Value.ToString();
                 student.txtFname.Text = dataGridViewStudentList.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -92,16 +93,14 @@ namespace TeacherPortal
                 {
                     student.birthdate.Text = parsedDate.ToString("yyyy-MM-dd");
                 }
-                else
-                {
-                    student.birthdate.Text = "";
-                }
 
-                student.txtContact.Text = dataGridViewStudentList.Rows[e.RowIndex].Cells[6].Value.ToString();
-                student.txtFatherName.Text = dataGridViewStudentList.Rows[e.RowIndex].Cells[7].Value.ToString();
-                student.txtFatherOccupation.Text = dataGridViewStudentList.Rows[e.RowIndex].Cells[8].Value.ToString();
-                student.txtMotherName.Text = dataGridViewStudentList.Rows[e.RowIndex].Cells[9].Value.ToString();
-                student.txtMotherOccupation.Text = dataGridViewStudentList.Rows[e.RowIndex].Cells[10].Value.ToString();
+                student.txtAge.Text = dataGridViewStudentList.Rows[e.RowIndex].Cells[6].Value.ToString();
+                student.txtContact.Text = dataGridViewStudentList.Rows[e.RowIndex].Cells[7].Value.ToString();
+                student.txtFatherName.Text = dataGridViewStudentList.Rows[e.RowIndex].Cells[8].Value.ToString();
+                student.txtFatherOccupation.Text = dataGridViewStudentList.Rows[e.RowIndex].Cells[9].Value.ToString();
+                student.txtMotherName.Text = dataGridViewStudentList.Rows[e.RowIndex].Cells[10].Value.ToString();
+                student.txtMotherOccupation.Text = dataGridViewStudentList.Rows[e.RowIndex].Cells[11].Value.ToString();
+
                 student.ShowDialog();
             }
             else if (_column == "colDelete")

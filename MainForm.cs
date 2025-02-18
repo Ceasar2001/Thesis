@@ -117,16 +117,22 @@ namespace TeacherPortal
         {
             buttonsms.Enabled = false; // Disable button to prevent multiple clicks
 
-            await Task.Run(() =>
+            try
             {
                 SmsNotification smsNotification = new SmsNotification();
-                smsNotification.SendStudentNotifications();
-            });
-
-            buttonsms.Enabled = true; // Re-enable button after sending
-
-            MessageBox.Show("SMS notifications sent successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                await smsNotification.SendStudentNotificationsAsync();  // Await the asynchronous method
+                MessageBox.Show("SMS notifications sent successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error sending SMS: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                buttonsms.Enabled = true; // Re-enable button after sending
+            }
         }
 
+
     }
-}
+    }
